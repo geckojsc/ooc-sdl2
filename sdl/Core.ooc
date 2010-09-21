@@ -40,7 +40,6 @@ SDL_GL_BLUE_SIZE   : extern(SDL_GL_BLUE_SIZE) 	const Int
 SDL_GL_DEPTH_SIZE  : extern(SDL_GL_DEPTH_SIZE) 	const Int  
 SDL_GL_DOUBLEBUFFER: extern(SDL_GL_DOUBLEBUFFER)const Int
 
-<<<<<<< HEAD:sdl/Core.ooc
 Surface: cover from SDL_Surface {
 	w: extern Int
 	h: extern Int
@@ -56,7 +55,7 @@ PixelFormat: cover from SDL_PixelFormat {
 	Amask: extern UInt8
 	BitsPerPixel: extern UInt32
 	BytesPerPixel: extern UInt32
-=======
+
 SdlRectangle: cover from SDL_Rect {
     x, y: extern Int16
     w, h: extern UInt16
@@ -67,7 +66,6 @@ SdlSurface: cover from SDL_Surface {
     h: extern Int
     pixels: extern Pointer
     pitch: UInt16
->>>>>>> Some more additions/fixes:sdl/Sdl.ooc
 }
 
 VideoInfo: cover from SDL_VideoInfo {
