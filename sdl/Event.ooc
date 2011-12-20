@@ -304,6 +304,7 @@ SDLEvent: cover {
 	SDL_MOUSEBUTTONDOWN: extern const Int
 	SDL_BUTTON_WHEELUP: extern const Int
 	SDL_BUTTON_RIGHT: extern const Int
+	SDL_BUTTON_MIDDLE: extern const Int
 	SDL_BUTTON_LEFT: extern const Int
 	SDL_BUTTON_WHEELDOWN: extern const Int
 
