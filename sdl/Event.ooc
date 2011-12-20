@@ -300,6 +300,8 @@ SDLEvent: cover {
 	
 	SDL_VIDEOEXPOSE: extern const Int
 	
+        SDL_KEYDOWN: extern(SDL_KEYDOWN) 	const Int
+        SDL_KEYUP: extern(SDL_KEYUP) 		const Int
 	SDL_MOUSEBUTTONUP: extern const Int
 	SDL_MOUSEBUTTONDOWN: extern const Int
 	SDL_BUTTON_WHEELUP: extern const Int
@@ -317,6 +319,6 @@ SDLEvent: cover {
 	
 	KMOD_LCTRL  : extern const Int
 	KMOD_RCTRL  : extern const Int
-    KMOD_SHIFT  : extern const Int
-    KMOD_LSHIFT : extern const Int
-    KMOD_RSHIFT : extern const Int
+        KMOD_SHIFT  : extern const Int
+        KMOD_LSHIFT : extern const Int
+        KMOD_RSHIFT : extern const Int
