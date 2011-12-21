@@ -300,6 +300,7 @@ SDLEvent: cover {
 	
 	SDL_VIDEOEXPOSE: extern const Int
 	
+        SDL_QUIT: extern(SDL_QUIT) 			const Int
         SDL_KEYDOWN: extern(SDL_KEYDOWN) 	const Int
         SDL_KEYUP: extern(SDL_KEYUP) 		const Int
 	SDL_MOUSEBUTTONUP: extern const Int
