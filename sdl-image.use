@@ -1,6 +1,0 @@
-Name: SDL_image 1.2
-Description: Simple DirectMedia Library - image component
-Requires: sdl
-Libs: -lSDL_image
-Includes: SDL/SDL_image.h
-SourcePath: .
