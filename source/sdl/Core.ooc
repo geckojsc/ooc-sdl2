@@ -40,23 +40,6 @@ SDL_GL_BLUE_SIZE   : extern(SDL_GL_BLUE_SIZE) 	const Int
 SDL_GL_DEPTH_SIZE  : extern(SDL_GL_DEPTH_SIZE) 	const Int  
 SDL_GL_DOUBLEBUFFER: extern(SDL_GL_DOUBLEBUFFER)const Int
 
-Surface: cover from SDL_Surface {
-    w: extern Int
-    h: extern Int
-    pitch: extern UInt16
-    format: extern PixelFormat*
-    pixels: extern Pointer
-}
-
-PixelFormat: cover from SDL_PixelFormat {
-    Rmask: extern UInt8
-    Gmask: extern UInt8
-    Bmask: extern UInt8
-    Amask: extern UInt8
-    BitsPerPixel: extern UInt32
-    BytesPerPixel: extern UInt32
-}
-
 SdlRectangle: cover from SDL_Rect {
     x, y: extern Int16
     w, h: extern UInt16
@@ -66,7 +49,37 @@ SdlSurface: cover from SDL_Surface {
     w: extern Int
     h: extern Int
     pixels: extern Pointer
+    format: extern SdlPixelFormat*
     pitch: UInt16
+}
+
+SdlColor: cover from SDL_Color {
+    r, g, b, unused: extern UInt8
+}
+
+SdlPalette: cover from SDL_Palette {
+    ncolors: extern Int
+    colors: SdlColor*
+}
+
+SdlPixelFormat: cover from SDL_PixelFormat {
+    palette: extern SdlPalette*
+    bitsPerPixel: extern(BitsPerPixel) UInt8
+    bytesPerPixel: extern(BytesPerPixel) UInt8
+    rLoss: extern(Rloss) UInt8
+    gLoss: extern(Gloss) UInt8
+    bLoss: extern(Bloss) UInt8
+    aLoss: extern(Aloss) UInt8
+    rShift: extern(Rshift) UInt8
+    gShift: extern(Gshift) UInt8
+    bShift: extern(Bshift) UInt8
+    aShift: extern(Ashift) UInt8
+    rMask: extern(Rmask) UInt8
+    gMask: extern(Gmask) UInt8
+    bMask: extern(Bmask) UInt8
+    aMask: extern(Amask) UInt8
+    colorKey: extern(colorkey) UInt32
+    alpha: extern UInt8
 }
 
 VideoInfo: cover from SDL_VideoInfo {
@@ -110,13 +123,22 @@ SDL: cover {
     getKeyState: extern(SDL_GetKeyState) static func (Int*) -> UChar*
     getRelativeMouseState: extern(SDL_GetRelativeMouseState) static func(Int*, Int*) -> UInt8
     delay: extern(SDL_Delay) static func(UInt32)
-    //linkedVersion: extern(SDL_Linked_Version) static func() -> const SDL_version*
 
     enableUnicode: extern(SDL_EnableUNICODE) static func(enable: Bool)
     
+    /* Video */
+    setMode: extern(SDL_SetVideoMode) static func(Int, Int, Int, UInt32) -> SdlSurface*
+    wmSetCaption: extern(SDL_WM_SetCaption) static func(CString, CString)
+    glSwapBuffers: extern(SDL_GL_SwapBuffers) static func
+    getVideoSurface: extern(SDL_GetVideoSurface) static func() -> SdlSurface*
+
+    flip: extern(SDL_Flip) static func (SdlSurface*)
+    fillRect: extern(SDL_FillRect) static func (SdlSurface*, SdlRectangle*, UInt32)
     
     /* Surfaces */
-    freeSurface: extern(SDL_FreeSurface) static func (surface: Surface*)
-    convertSurface: extern (SDL_ConvertSurface) static func (surface: Surface*, pf: PixelFormat*, flags: Int) -> Surface*
-    createRgbSurface: extern (SDL_CreateRGBSurface) static func (flags: UInt32, width: Int, height: Int, bpp: Int, Rmask: UInt32, GMask: UInt32, BMask: UInt32, AMask: UInt32) -> Surface*
+    freeSurface: extern(SDL_FreeSurface) static func (surface: SdlSurface*)
+    convertSurface: extern (SDL_ConvertSurface) static func (surface: SdlSurface*, pf: SdlPixelFormat*, flags: Int) -> SdlSurface*
+    createRgbSurface: extern (SDL_CreateRGBSurface) static func (flags: UInt32, width: Int, height: Int, bpp: Int, Rmask: UInt32, GMask: UInt32, BMask: UInt32, AMask: UInt32) -> SdlSurface*
+
+    mapRgb: extern(SDL_MapRGB) static func (format: SdlPixelFormat*, r: UInt8, g: UInt8, b: UInt8) -> UInt32
 }
