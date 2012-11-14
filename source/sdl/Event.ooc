@@ -1,5 +1,5 @@
 use sdl
-import sdl/Sdl
+import sdl/Core
 
 Motion: cover from SDL_MouseMotionEvent {
 	x,y: extern Int
