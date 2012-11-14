@@ -41,20 +41,21 @@ SDL_GL_DEPTH_SIZE  : extern(SDL_GL_DEPTH_SIZE) 	const Int
 SDL_GL_DOUBLEBUFFER: extern(SDL_GL_DOUBLEBUFFER)const Int
 
 Surface: cover from SDL_Surface {
-	w: extern Int
-	h: extern Int
-	pitch: extern UInt16
-	format: extern PixelFormat*
-	pixels: extern Pointer
+    w: extern Int
+    h: extern Int
+    pitch: extern UInt16
+    format: extern PixelFormat*
+    pixels: extern Pointer
 }
 
 PixelFormat: cover from SDL_PixelFormat {
-	Rmask: extern UInt8
-	Gmask: extern UInt8
-	Bmask: extern UInt8
-	Amask: extern UInt8
-	BitsPerPixel: extern UInt32
-	BytesPerPixel: extern UInt32
+    Rmask: extern UInt8
+    Gmask: extern UInt8
+    Bmask: extern UInt8
+    Amask: extern UInt8
+    BitsPerPixel: extern UInt32
+    BytesPerPixel: extern UInt32
+}
 
 SdlRectangle: cover from SDL_Rect {
     x, y: extern Int16
@@ -82,40 +83,39 @@ SDL_GRAB_ON: extern(SDL_GRAB_ON) 	const Int
 	
  
 SDL: cover {
-	
-	/* Some general methods for sdl */
-	init: extern(SDL_Init) static func(UInt32) -> Int
-	initSubSystem: extern(SDL_InitSubSystem) static func(UInt32) -> Int
-	quitSubSystem: extern(SDL_QuitSubSystem) static func(UInt32)
-	quit: extern(SDL_Quit) static func()
-	wasInit: extern (SDL_WasInit) static func(UInt32) -> Int
-	getError: extern(SDL_GetError) static func() -> String
-	setError: extern(SDL_SetError) static func (const String, ...)
-	//error: extern(SDL_Error) static func (extern(SDL_errorcode))
-	clearError: extern(SDL_ClearError) static func()
-	loadObject: extern(SDL_LoadObject) static func(const String) -> Void*
-	loadFunction: extern(SDL_LoadFunction) static func(Void* , const String) -> Void*
-	unloadObject: extern(SDL_UnloadObject) static func(Void*)
-	getTicks: extern(SDL_GetTicks) static func() -> Int
-	enableKeyRepeat: extern(SDL_EnableKeyRepeat) static func(Int,Int)
-	showCursor: extern(SDL_ShowCursor) static func(Int)
-	warpMouse: extern(SDL_WarpMouse) static func(Int,Int)
-	WM_GrabInput: extern(SDL_WM_GrabInput) static func(Int)
-	WM_ToggleFullScreen: extern(SDL_WM_ToggleFullScreen) static func(SdlSurface*)
-	loadBMP: extern(SDL_LoadBMP) static func(String) -> SdlSurface*
-	getVideoInfo: extern(SDL_GetVideoInfo) static func() -> VideoInfo*
-	GL_SetAttribute: extern (SDL_GL_SetAttribute) static func (Int,Int)
-	getModState: extern(SDL_GetModState) static func () -> Int
-	getKeyState: extern(SDL_GetKeyState) static func (Int*) -> UChar*
-	getRelativeMouseState: extern(SDL_GetRelativeMouseState) static func(Int*, Int*) -> UInt8
-	delay: extern(SDL_Delay) static func(UInt32)
-	//linkedVersion: extern(SDL_Linked_Version) static func() -> const SDL_version*
     
+    /* Some general methods for sdl */
+    init: extern(SDL_Init) static func(UInt32) -> Int
+    initSubSystem: extern(SDL_InitSubSystem) static func(UInt32) -> Int
+    quitSubSystem: extern(SDL_QuitSubSystem) static func(UInt32)
+    quit: extern(SDL_Quit) static func()
+    wasInit: extern (SDL_WasInit) static func(UInt32) -> Int
+    getError: extern(SDL_GetError) static func() -> String
+    setError: extern(SDL_SetError) static func (const String, ...)
+    //error: extern(SDL_Error) static func (extern(SDL_errorcode))
+    clearError: extern(SDL_ClearError) static func()
+    loadObject: extern(SDL_LoadObject) static func(const String) -> Void*
+    loadFunction: extern(SDL_LoadFunction) static func(Void* , const String) -> Void*
+    unloadObject: extern(SDL_UnloadObject) static func(Void*)
+    getTicks: extern(SDL_GetTicks) static func() -> Int
+    enableKeyRepeat: extern(SDL_EnableKeyRepeat) static func(Int,Int)
+    showCursor: extern(SDL_ShowCursor) static func(Int)
+    warpMouse: extern(SDL_WarpMouse) static func(Int,Int)
+    WM_GrabInput: extern(SDL_WM_GrabInput) static func(Int)
+    WM_ToggleFullScreen: extern(SDL_WM_ToggleFullScreen) static func(SdlSurface*)
+    loadBMP: extern(SDL_LoadBMP) static func(String) -> SdlSurface*
+    getVideoInfo: extern(SDL_GetVideoInfo) static func() -> VideoInfo*
+    GL_SetAttribute: extern (SDL_GL_SetAttribute) static func (Int,Int)
+    getModState: extern(SDL_GetModState) static func () -> Int
+    getKeyState: extern(SDL_GetKeyState) static func (Int*) -> UChar*
+    getRelativeMouseState: extern(SDL_GetRelativeMouseState) static func(Int*, Int*) -> UInt8
+    delay: extern(SDL_Delay) static func(UInt32)
+    //linkedVersion: extern(SDL_Linked_Version) static func() -> const SDL_version*
+
     enableUnicode: extern(SDL_EnableUNICODE) static func(enable: Bool)
     
     
     /* Surfaces */
-    
     freeSurface: extern(SDL_FreeSurface) static func (surface: Surface*)
     convertSurface: extern (SDL_ConvertSurface) static func (surface: Surface*, pf: PixelFormat*, flags: Int) -> Surface*
     createRgbSurface: extern (SDL_CreateRGBSurface) static func (flags: UInt32, width: Int, height: Int, bpp: Int, Rmask: UInt32, GMask: UInt32, BMask: UInt32, AMask: UInt32) -> Surface*
