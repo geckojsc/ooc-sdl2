@@ -3,7 +3,7 @@ import sdl/Core
 
 main: func (argc: Int, argv: CString*) {
   SDL init(SDL_INIT_EVERYTHING)
-  screen := SDL setMode(640, 480, 0, SDL_HWSURFACE | SDL_DOUBLEBUF)
+  screen := SDL setMode(640, 480, 0, SDL_HWSURFACE | SDL_DOUBLEBUF | SDL_FULLSCREEN)
   SDL wmSetCaption("", null)
 
   SDL fillRect(screen, null, SDL mapRgb(screen@ format, 72, 60, 50))
