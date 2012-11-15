@@ -2,5 +2,5 @@ Name: SDL 1.2
 Description: Simple DirectMedia Library
 Pkgs: sdl
 Includes: SDL/SDL.h, SDL/SDL_image.h
-Libs: -lSDL_Image
+Libs: -lSDL_image
 SourcePath: source
