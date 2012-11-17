@@ -1,0 +1,5 @@
+Name: SDL_gfx 2.0
+Description: Graphic primitives for SDL
+Includes: SDL/SDL_gfx.h
+Libs: -lSDL_gfx
+
