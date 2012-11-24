@@ -139,6 +139,7 @@ SDL: cover {
     freeSurface: extern(SDL_FreeSurface) static func (surface: SdlSurface*)
     convertSurface: extern (SDL_ConvertSurface) static func (surface: SdlSurface*, pf: SdlPixelFormat*, flags: Int) -> SdlSurface*
     createRgbSurface: extern (SDL_CreateRGBSurface) static func (flags: UInt32, width: Int, height: Int, bpp: Int, Rmask: UInt32, GMask: UInt32, BMask: UInt32, AMask: UInt32) -> SdlSurface*
+    blitSurface: extern (SDL_BlitSurface) static func (src: SdlSurface*, srcRect: SdlRectangle*, dst: SdlSurface*, dstRect: SdlRectangle*)
 
     mapRgb: extern(SDL_MapRGB) static func (format: SdlPixelFormat*, r: UInt8, g: UInt8, b: UInt8) -> UInt32
 }
