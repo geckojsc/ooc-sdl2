@@ -83,8 +83,8 @@ SdlPixelFormat: cover from SDL_PixelFormat {
 }
 
 VideoInfo: cover from SDL_VideoInfo {
-	hw_available: extern Int
-	blit_hw: extern Int
+    hw_available: extern Int
+    blit_hw: extern Int
 }
 
 SDL_QUIT: extern(SDL_QUIT) 		const Int
@@ -118,7 +118,6 @@ SDL: cover {
     WM_ToggleFullScreen: extern(SDL_WM_ToggleFullScreen) static func(SdlSurface*)
     loadBMP: extern(SDL_LoadBMP) static func(String) -> SdlSurface*
     getVideoInfo: extern(SDL_GetVideoInfo) static func() -> VideoInfo*
-    GL_SetAttribute: extern (SDL_GL_SetAttribute) static func (Int,Int)
     getModState: extern(SDL_GetModState) static func () -> Int
     getKeyState: extern(SDL_GetKeyState) static func (Int*) -> UChar*
     getRelativeMouseState: extern(SDL_GetRelativeMouseState) static func(Int*, Int*) -> UInt8
@@ -129,11 +128,14 @@ SDL: cover {
     /* Video */
     setMode: extern(SDL_SetVideoMode) static func(Int, Int, Int, UInt32) -> SdlSurface*
     wmSetCaption: extern(SDL_WM_SetCaption) static func(CString, CString)
-    glSwapBuffers: extern(SDL_GL_SwapBuffers) static func
     getVideoSurface: extern(SDL_GetVideoSurface) static func() -> SdlSurface*
 
     flip: extern(SDL_Flip) static func (SdlSurface*)
     fillRect: extern(SDL_FillRect) static func (SdlSurface*, SdlRectangle*, UInt32)
+
+    /* OpenGL */
+    glSwapBuffers: extern(SDL_GL_SwapBuffers) static func
+    glSetAttribute: extern (SDL_GL_SetAttribute) static func (Int,Int)
     
     /* Surfaces */
     freeSurface: extern(SDL_FreeSurface) static func (surface: SdlSurface*)
