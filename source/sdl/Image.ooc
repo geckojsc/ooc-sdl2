@@ -1,3 +1,3 @@
 use sdl-image
 
-IMG_Load: extern func (fileName: Char*) -> Surface*
+IMG_Load: extern func (path: CString) -> SdlSurface*
