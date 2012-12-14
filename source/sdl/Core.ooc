@@ -112,7 +112,7 @@ SDL: cover {
     unloadObject: extern(SDL_UnloadObject) static func(Void*)
     getTicks: extern(SDL_GetTicks) static func() -> Int
     enableKeyRepeat: extern(SDL_EnableKeyRepeat) static func(Int,Int)
-    showCursor: extern(SDL_ShowCursor) static func(Int)
+    showCursor: extern(SDL_ShowCursor) static func(Bool)
     warpMouse: extern(SDL_WarpMouse) static func(Int,Int)
     WM_GrabInput: extern(SDL_WM_GrabInput) static func(Int)
     WM_ToggleFullScreen: extern(SDL_WM_ToggleFullScreen) static func(SdlSurface*)
