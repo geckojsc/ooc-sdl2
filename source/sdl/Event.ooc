@@ -8,7 +8,7 @@ Motion: cover from SDL_MouseMotionEvent {
 
 Keysym: cover from SDL_keysym {
 	sym: extern Int
-    unicode: extern Int
+    unicode: extern UInt16
 }
 
 Button: cover from SDL_MouseButtonEvent {

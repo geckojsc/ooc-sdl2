@@ -92,9 +92,11 @@ SDL_KEYDOWN: extern(SDL_KEYDOWN) 	const Int
 SDL_KEYUP: extern(SDL_KEYUP) 		const Int
 SDL_ENABLE: extern(SDL_ENABLE) 		const Int
 SDL_DISABLE: extern(SDL_DISABLE)	const Int
-SDL_GRAB_ON: extern(SDL_GRAB_ON) 	const Int 
-	
- 
+SDL_GRAB_ON: extern(SDL_GRAB_ON) 	const Int 	
+
+SDL_DEFAULT_REPEAT_DELAY: extern Int
+SDL_DEFAULT_REPEAT_INTERVAL: extern Int
+
 SDL: cover {
     
     /* Some general methods for sdl */
