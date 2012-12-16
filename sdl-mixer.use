@@ -1,4 +1,4 @@
 Name: SDL_mixer 1.2
-Description: Image extension for SDL
+Description: Mixer extension for SDL
 Includes: SDL/SDL_mixer.h
 Libs: -lSDL_mixer

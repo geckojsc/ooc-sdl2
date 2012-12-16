@@ -3,3 +3,4 @@ Description: Simple DirectMedia Library
 Pkgs: sdl
 Includes: SDL.h
 SourcePath: source
+Frameworks: Cocoa
