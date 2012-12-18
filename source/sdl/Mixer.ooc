@@ -32,6 +32,8 @@ Mix: class {
 
     loadMus: static extern(Mix_LoadMUS) func (path: CString) -> MixMusic
 
+    haltMusic: static extern(Mix_HaltMusic) func
+
     loadWav: static extern(Mix_LoadWAV) func (path: CString) -> MixChunk
 
     haltChannel: static extern(Mix_HaltChannel) func (channel: Int)
