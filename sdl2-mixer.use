@@ -1,0 +1,4 @@
+Name: SDL_mixer 2.0
+Description: Mixer extension for SDL
+Includes: SDL2/SDL_mixer.h
+Libs: -lSDL2_mixer
