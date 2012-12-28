@@ -186,17 +186,13 @@ SDL: cover {
 	loadFunction: extern(SDL_LoadFunction) static func (Void* , const String) -> Void*
 	unloadObject: extern(SDL_UnloadObject) static func (Void*)
 	getTicks: extern(SDL_GetTicks) static func -> Int
-	enableKeyRepeat: extern(SDL_EnableKeyRepeat) static func (Int,Int)
 	showCursor: extern(SDL_ShowCursor) static func (Bool)
-	warpMouse: extern(SDL_WarpMouse) static func (Int,Int)
-	WM_GrabInput: extern(SDL_WM_GrabInput) static func (Int)
-	WM_ToggleFullScreen: extern(SDL_WM_ToggleFullScreen) static func (SdlSurface*)
-	getModState: extern(SDL_GetModState) static func -> Int
-	getKeyState: extern(SDL_GetKeyState) static func (Int*) -> UChar*
 	getRelativeMouseState: extern(SDL_GetRelativeMouseState) static func (Int*, Int*) -> UInt8
 	delay: extern(SDL_Delay) static func (UInt32)
 	
 	enableUnicode: extern(SDL_EnableUNICODE) static func (enable: Bool)
+
+	mapRgb: extern(SDL_MapRGB) static func (SdlPixelFormat*, r, g, b: UInt8) -> UInt32
 	
 	
 	/* Video */
@@ -348,6 +344,23 @@ SDL: cover {
 	blitSurface: extern(SDL_BlitSurface) static func (src: SdlSurface*, srcrect: const SdlRect*, dst: SdlSurface*, dstrect: SdlRect*) -> Int
 	softStretch: extern(SDL_SoftStretch) static func (src: SdlSurface*, srcrect: const SdlRect*, dst: SdlSurface*, dstrect: const SdlRect*) -> Int
 	blitScaled: extern(SDL_BlitScaled) static func (src: SdlSurface*, srcrect: const SdlRect*, dst: SdlSurface*, dstrect: SdlRect*) -> Int
+	
+	/* Keyboard */
+	getKeyboardFocus: extern(SDL_GetKeyboardFocus) static func -> Void*/*SdlWindow*/
+	getKeyboardState: extern(SDL_GetKeyboardState) static func(numkeys: Int*) -> UInt8*
+	getModState: extern(SDL_GetModState) static func -> Int
+	setModState: extern(SDL_SetModState) static func(modstate: Int)
+	getKeyFromScancode: extern(SDL_GetKeyFromScancode) static func(scancode: Int) -> Int
+	getScancodeFromKey: extern(SDL_GetScancodeFromKey) static func(key: Int) -> Int
+	getScancodeName: extern(SDL_GetScancodeName) static func(scancode: Int) -> const Char*
+	getScancodeFromName: extern(SDL_GetScancodeFromName) static func(name: const Char*) -> Int
+	getKeyName: extern(SDL_GetKeyName) static func(key: Int) -> const Char*
+	getKeyFromName: extern(SDL_GetKeyFromName) static func(name: const Char*) -> Int
+	startTextInput: extern(SDL_StartTextInput) static func
+	isTextInputActive: extern(SDL_IsTextInputActive) static func -> Bool
+	stopTextInput: extern(SDL_StopTextInput) static func
+	setTextInputRect: extern(SDL_SetTextInputRect) static func(rect: SdlRect*)
+	hasScreenKeyboardSupport: extern(SDL_HasScreenKeyboardSupport) static func -> Bool
+	isScreenKeyboardShown: extern(SDL_IsScreenKeyboardShown) static func(window: Void*/*SdlWindow*/) -> Bool
 
-	mapRgb: extern(SDL_MapRGB) static func (SdlPixelFormat*, r: UInt8, g: UInt8, b: UInt8) -> UInt32
 }

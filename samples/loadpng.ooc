@@ -15,7 +15,7 @@ main: func (argc: Int, argv: CString*) {
 	renderer := SDL createRenderer(window, -1, SDL_RENDERER_ACCELERATED)
 	
 	// Load a PNG as a surface
-	podlySurface := IMG_Load("translucent_podly.png")
+	podlySurface := SDLImage load("translucent_podly.png")
 	
 	if (podlySurface == null) {
 		printf("Error loading image, %s\n", SDL getError())
@@ -33,7 +33,7 @@ main: func (argc: Int, argv: CString*) {
 	targetRect w = 88
 	targetRect h = 88
 	
-	// Clear the screen to black
+	// Clear the screen
 	SDL setRenderDrawColor(renderer, 0, 40, 80, 255)
 	SDL renderClear(renderer)
 	

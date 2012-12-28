@@ -1,4 +1,6 @@
 use sdl2, sdl2-image
 import sdl2/Core
 
-IMG_Load: extern func (path: CString) -> SdlSurface*
+SDLImage: cover {
+	load: extern(IMG_Load) static func (path: CString) -> SdlSurface*
+}
