@@ -9,9 +9,20 @@ networking, etc.
 SDL 2.0 improves on SDL 1.2 by adding support for multiple windows, fully
 hardware accelerated rendering, and improved input capabilities.
 
-These bindings are fairly incomplete, currently only sdl2/Core and sdl2/Event
-have been updated, and may still be missing some types and functions. Please
-contribute!
+These bindings are fairly incomplete, currently sdl2/Core, sdl2/Event and
+sdl2/Image have been updated, and may still be missing some types and
+functions. Please contribute!
+
+### Todo
+
+  * Fix .travis.yml
+  * Update bindings for SDL2_mixer (maybe rename some stuff for consitency
+    with sdl2/Image and sdl2/Event)?
+  * Change sdl2.use to utilise sdl2-config, instead of linking with library files
+    explicitly (e.g. so people don't have to add -lmingw32 to build on Windows)
+  * Create bindings for SDL2_ttf
+  * Verify that the SDL_gfx bindings work with SDL 2.0, and add bindings for the
+    new SDL2_gfx library (which should work alongside it too?)
 
 ### Authors
 
