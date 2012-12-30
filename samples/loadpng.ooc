@@ -18,7 +18,7 @@ main: func (argc: Int, argv: CString*) {
 	podlySurface := SDLImage load("translucent_podly.png")
 	
 	if (podlySurface == null) {
-		printf("Error loading image, %s\n", SDL getError())
+		"Error loading image, %s" printfln(SDL getError())
 		return 1
 	}
 	
