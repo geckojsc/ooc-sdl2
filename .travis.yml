@@ -6,7 +6,7 @@ before_install:
   - mkdir dummyprefix
   - export PREFIX=$PWD/dummyprefix
   - hg clone http://hg.libsdl.org/SDL
-  - (cd SDL && ./configure --prefix=$PREFIX && make -j5 && make install)
+  - (mkdir SDL_build && cd SDL_build && ../SDL/configure --prefix=$PREFIX && make -j5 && make install)
   - hg clone http://hg.libsdl.org/SDL_image
   - (cd SDL_image && ./configure --prefix=$PREFIX && make -j5 && make install)
   - hg clone http://hg.libsdl.org/SDL_mixer
