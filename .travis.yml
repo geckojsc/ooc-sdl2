@@ -1,12 +1,20 @@
 before_install:
-  - sudo apt-get -y -qq install curl make libgc-dev libsdl1.2-dev
+  - sudo apt-get -y -qq install curl make libgc-dev
   - git clone --depth=1 git://github.com/nddrylliog/rock.git 
   - (cd rock && make -s quick-rescue)
   - export PATH=$PATH:$PWD/rock/bin
+  - mkdir dummyprefix
+  - export PREFIX=$PWD/dummyprefix
+  - hg clone http://hg.libsdl.org/SDL
+  - (cd SDL && ./configure --prefix=$PREFIX && make -j5 && make install)
+  - hg clone http://hg.libsdl.org/SDL_image
+  - (cd SDL_image && ./configure --prefix=$PREFIX && make -j5 && make install)
+  - hg clone http://hg.libsdl.org/SDL_mixer
+  - (cd SDL_mixer && ./configure --prefix=$PREFIX && make -j5 && make install)
 
 script:
   - export OOC_LIBS=$PWD
   - cd samples
   - mkdir -p travis
-  - rock -v window.ooc -o=travis/window
+  - rock -v window.ooc -o=travis/window -I$PREFIX/include -L$PREFIX/lib
 
