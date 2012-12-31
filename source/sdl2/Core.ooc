@@ -161,9 +161,6 @@ SDL_ENABLE: extern const Int
 SDL_DISABLE: extern const Int
 SDL_GRAB_ON: extern const Int
 
-SDL_DEFAULT_REPEAT_DELAY: extern Int
-SDL_DEFAULT_REPEAT_INTERVAL: extern Int
-
 SDL: cover {
 	
 	/* Some general methods for sdl */
@@ -184,8 +181,6 @@ SDL: cover {
 	getRelativeMouseState: extern(SDL_GetRelativeMouseState) static func (Int*, Int*) -> UInt8
 	delay: extern(SDL_Delay) static func (UInt32)
 	
-	enableUnicode: extern(SDL_EnableUNICODE) static func (enable: Bool)
-
 	mapRgb: extern(SDL_MapRGB) static func (SdlPixelFormat*, r, g, b: UInt8) -> UInt32
 	
 	

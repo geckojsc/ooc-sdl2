@@ -215,16 +215,16 @@ SDLK_WORLD_94 : extern Int
 SDLK_WORLD_95 : extern Int		/* 0xFF */
 
 /* Numeric keypad */
-SDLK_KP0         : extern Int
-SDLK_KP1         : extern Int
-SDLK_KP2         : extern Int
-SDLK_KP3         : extern Int
-SDLK_KP4         : extern Int
-SDLK_KP5         : extern Int
-SDLK_KP6         : extern Int
-SDLK_KP7         : extern Int
-SDLK_KP8         : extern Int
-SDLK_KP9         : extern Int
+SDLK_KP_0         : extern Int
+SDLK_KP_1         : extern Int
+SDLK_KP_2         : extern Int
+SDLK_KP_3         : extern Int
+SDLK_KP_4         : extern Int
+SDLK_KP_5         : extern Int
+SDLK_KP_6         : extern Int
+SDLK_KP_7         : extern Int
+SDLK_KP_8         : extern Int
+SDLK_KP_9         : extern Int
 SDLK_KP_PERIOD   : extern Int
 SDLK_KP_DIVIDE   : extern Int
 SDLK_KP_MULTIPLY : extern Int
