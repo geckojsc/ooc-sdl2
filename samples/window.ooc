@@ -15,8 +15,8 @@ main: func (argc: Int, argv: CString*) {
 	// create a hardware-accelerated rendering target
 	renderer := SDL createRenderer(window, -1, SDL_RENDERER_ACCELERATED)
 	
-	// clear the screen to black, and apply the changes
-	SDL setRenderDrawColor(renderer, 0, 0, 0, 255)
+	// clear the screen to taupe, and apply the changes
+	SDL setRenderDrawColor(renderer, 72, 60, 50, 255)
 	SDL renderClear(renderer)
 	SDL renderPresent(renderer)
 	
