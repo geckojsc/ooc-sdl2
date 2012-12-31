@@ -119,15 +119,9 @@ SdlDisplayMode: cover from SDL_DisplayMode {
 	driverdata:extern  Void*
 }
 
-/*
- * Note, these structures are empty, or may have different implementations for different platforms
- * So far I have been able to avoid errors by replacing them with Void*s in the functions that use them
- * Somebody let me know if there is a more elegant solution.
- */
-SdlWindow: cover from SDL_Window* {}
-SdlRenderer: cover from SDL_Renderer* {}
-SdlTexture: cover from SDL_Texture* {}
-
+SdlWindow: cover from SDL_Window* 
+SdlRenderer: cover from SDL_Renderer*
+SdlTexture: cover from SDL_Texture*
 
 SdlColor: cover from SDL_Color {
 	r, g, b, unused: extern UInt8
@@ -210,44 +204,44 @@ SDL: cover {
 	getClosestDisplayMode: extern(SDL_GetClosestDisplayMode) static func (displayIndex: Int, mode: const SdlDisplayMode*, closest: SdlDisplayMode*) -> SdlDisplayMode*
 	
 	/* Window */
-	getWindowDisplay: extern(SDL_GetWindowDisplay) static func (Void*/*SdlWindow*/) -> Int
-	setWindowDisplayMode: extern(SDL_SetWindowDisplayMode) static func (Void*/*SdlWindow*/, mode: const SdlDisplayMode*) -> Int
-	getWindowDisplayMode: extern(SDL_GetWindowDisplayMode) static func (Void*/*SdlWindow*/, mode: SdlDisplayMode*) -> Int
-	getWindowPixelFormat: extern(SDL_GetWindowPixelFormat) static func (Void*/*SdlWindow*/) -> UInt32
-	createWindow: extern(SDL_CreateWindow) static func (title: const Char*, x, y, w, h: Int, flags: UInt32) -> Void*/*SdlWindow*/
-	createWindowFrom: extern(SDL_CreateWindowFrom) static func (data: const Void*) -> Void*/*SdlWindow*/
-	getWindowID: extern(SDL_GetWindowID) static func (Void*/*SdlWindow*/) -> UInt32
-	getWindowFromID: extern(SDL_GetWindowFromID) static func (id: UInt32) -> Void*/*SdlWindow*/
-	getWindowFlags: extern(SDL_GetWindowFlags) static func (Void*/*SdlWindow*/) -> UInt32
-	setWindowTitle: extern(SDL_SetWindowTitle) static func (Void*/*SdlWindow*/, title: const Char*)
-	getWindowTitle: extern(SDL_GetWindowTitle) static func (Void*/*SdlWindow*/) -> const Char*
-	setWindowIcon: extern(SDL_SetWindowIcon) static func (Void*/*SdlWindow*/, icon: SdlSurface*)
-	setWindowData: extern(SDL_SetWindowData) static func (Void*/*SdlWindow*/, name: const Char*, userdata: Void*) -> Void*
-	getWindowData: extern(SDL_GetWindowData) static func (Void*/*SdlWindow*/, name: const Char*) -> Void*
-	setWindowPosition: extern(SDL_SetWindowPosition) static func (Void*/*SdlWindow*/, x, y: Int)
-	getWindowPosition: extern(SDL_GetWindowPosition) static func (Void*/*SdlWindow*/, x, y: Int*)
-	setWindowSize: extern(SDL_SetWindowSize) static func (Void*/*SdlWindow*/, w, h: Int)
-	getWindowSize: extern(SDL_GetWindowSize) static func (Void*/*SdlWindow*/, w, h: Int*)
-	setWindowMinimumSize: extern(SDL_SetWindowMinimumSize) static func (Void*/*SdlWindow*/, min_w, min_h: Int)
-	getWindowMinimumSize: extern(SDL_GetWindowMinimumSize) static func (Void*/*SdlWindow*/, w, h: Int*)
-	setWindowBordered: extern(SDL_SetWindowBordered) static func (Void*/*SdlWindow*/, bordered: Bool)
-	showWindow: extern(SDL_ShowWindow) static func (Void*/*SdlWindow*/)
-	hideWindow: extern(SDL_HideWindow) static func (Void*/*SdlWindow*/)
-	raiseWindow: extern(SDL_RaiseWindow) static func (Void*/*SdlWindow*/)
-	maximizeWindow: extern(SDL_MaximizeWindow) static func (Void*/*SdlWindow*/)
-	minimizeWindow: extern(SDL_MinimizeWindow) static func (Void*/*SdlWindow*/)
-	restoreWindow: extern(SDL_RestoreWindow) static func (Void*/*SdlWindow*/)
-	setWindowFullscreen: extern(SDL_SetWindowFullscreen) static func (Void*/*SdlWindow*/, fullscreen: Bool) -> Int
-	getWindowSurface: extern(SDL_GetWindowSurface) static func (Void*/*SdlWindow*/) -> SdlSurface*
-	updateWindowSurface: extern(SDL_UpdateWindowSurface) static func (Void*/*SdlWindow*/) -> Int
-	updateWindowSurfaceRects: extern(SDL_UpdateWindowSurfaceRects) static func (Void*/*SdlWindow*/, rects: SdlRect*, numrects: Int) -> Int
-	setWindowGrab: extern(SDL_SetWindowGrab) static func (Void*/*SdlWindow*/, grabbed: Bool)
-	getWindowGrab: extern(SDL_GetWindowGrab) static func (Void*/*SdlWindow*/) -> Bool
-	setWindowBrightness: extern(SDL_SetWindowBrightness) static func (Void*/*SdlWindow*/, brightness: Float) -> Int
-	getWindowBrightness: extern(SDL_GetWindowBrightness) static func (Void*/*SdlWindow*/) -> Float
-	setWindowGammaRamp: extern(SDL_SetWindowGammaRamp) static func (Void*/*SdlWindow*/, r, g, b: const UInt16*) -> Int
-	getWindowGammaRamp: extern(SDL_GetWindowGammaRamp) static func (Void*/*SdlWindow*/, r, g, b: UInt16*) -> Int
-	destroyWindow: extern(SDL_DestroyWindow) static func (Void*/*SdlWindow*/)
+	getWindowDisplay: extern(SDL_GetWindowDisplay) static func (window: SdlWindow) -> Int
+	setWindowDisplayMode: extern(SDL_SetWindowDisplayMode) static func (window: SdlWindow, mode: const SdlDisplayMode*) -> Int
+	getWindowDisplayMode: extern(SDL_GetWindowDisplayMode) static func (window: SdlWindow, mode: SdlDisplayMode*) -> Int
+	getWindowPixelFormat: extern(SDL_GetWindowPixelFormat) static func (window: SdlWindow) -> UInt32
+	createWindow: extern(SDL_CreateWindow) static func (title: const Char*, x, y, w, h: Int, flags: UInt32) -> SdlWindow
+	createWindowFrom: extern(SDL_CreateWindowFrom) static func (data: const Void*) -> SdlWindow
+	getWindowID: extern(SDL_GetWindowID) static func (window: SdlWindow) -> UInt32
+	getWindowFromID: extern(SDL_GetWindowFromID) static func (id: UInt32) -> SdlWindow
+	getWindowFlags: extern(SDL_GetWindowFlags) static func (window: SdlWindow) -> UInt32
+	setWindowTitle: extern(SDL_SetWindowTitle) static func (window: SdlWindow, title: const Char*)
+	getWindowTitle: extern(SDL_GetWindowTitle) static func (window: SdlWindow) -> const Char*
+	setWindowIcon: extern(SDL_SetWindowIcon) static func (window: SdlWindow, icon: SdlSurface*)
+	setWindowData: extern(SDL_SetWindowData) static func (window: SdlWindow, name: const Char*, userdata: Void*) -> Void*
+	getWindowData: extern(SDL_GetWindowData) static func (window: SdlWindow, name: const Char*) -> Void*
+	setWindowPosition: extern(SDL_SetWindowPosition) static func (window: SdlWindow, x, y: Int)
+	getWindowPosition: extern(SDL_GetWindowPosition) static func (window: SdlWindow, x, y: Int*)
+	setWindowSize: extern(SDL_SetWindowSize) static func (window: SdlWindow, w, h: Int)
+	getWindowSize: extern(SDL_GetWindowSize) static func (window: SdlWindow, w, h: Int*)
+	setWindowMinimumSize: extern(SDL_SetWindowMinimumSize) static func (window: SdlWindow, min_w, min_h: Int)
+	getWindowMinimumSize: extern(SDL_GetWindowMinimumSize) static func (window: SdlWindow, w, h: Int*)
+	setWindowBordered: extern(SDL_SetWindowBordered) static func (window: SdlWindow, bordered: Bool)
+	showWindow: extern(SDL_ShowWindow) static func (window: SdlWindow)
+	hideWindow: extern(SDL_HideWindow) static func (window: SdlWindow)
+	raiseWindow: extern(SDL_RaiseWindow) static func (window: SdlWindow)
+	maximizeWindow: extern(SDL_MaximizeWindow) static func (window: SdlWindow)
+	minimizeWindow: extern(SDL_MinimizeWindow) static func (window: SdlWindow)
+	restoreWindow: extern(SDL_RestoreWindow) static func (window: SdlWindow)
+	setWindowFullscreen: extern(SDL_SetWindowFullscreen) static func (window: SdlWindow, fullscreen: Bool) -> Int
+	getWindowSurface: extern(SDL_GetWindowSurface) static func (window: SdlWindow) -> SdlSurface*
+	updateWindowSurface: extern(SDL_UpdateWindowSurface) static func (window: SdlWindow) -> Int
+	updateWindowSurfaceRects: extern(SDL_UpdateWindowSurfaceRects) static func (window: SdlWindow, rects: SdlRect*, numrects: Int) -> Int
+	setWindowGrab: extern(SDL_SetWindowGrab) static func (window: SdlWindow, grabbed: Bool)
+	getWindowGrab: extern(SDL_GetWindowGrab) static func (window: SdlWindow) -> Bool
+	setWindowBrightness: extern(SDL_SetWindowBrightness) static func (window: SdlWindow, brightness: Float) -> Int
+	getWindowBrightness: extern(SDL_GetWindowBrightness) static func (window: SdlWindow) -> Float
+	setWindowGammaRamp: extern(SDL_SetWindowGammaRamp) static func (window: SdlWindow, r, g, b: const UInt16*) -> Int
+	getWindowGammaRamp: extern(SDL_GetWindowGammaRamp) static func (window: SdlWindow, r, g, b: UInt16*) -> Int
+	destroyWindow: extern(SDL_DestroyWindow) static func (window: SdlWindow)
 	
 	isScreenSaverEnabled: extern(SDL_IsScreenSaverEnabled) static func -> Bool
 	enableScreenSaver: extern(SDL_EnableScreenSaver) static func
@@ -259,62 +253,62 @@ SDL: cover {
 	glExtensionSupported: extern(SDL_GL_ExtensionSupported) static func (extension: const Char*) -> Bool
 	glSetAttribute: extern(SDL_GL_SetAttribute) static func (attr: Int, value: Int) -> Int
 	glGetAttribute: extern(SDL_GL_GetAttribute) static func (attr: Int, value: Int*) -> Int
-	glCreateContext: extern(SDL_GL_CreateContext) static func (Void*/*SdlWindow*/) -> SdlGlContext
-	glMakeCurrent: extern(SDL_GL_MakeCurrent) static func (Void*/*SdlWindow*/, context: SdlGlContext) -> Int
+	glCreateContext: extern(SDL_GL_CreateContext) static func (window: SdlWindow) -> SdlGlContext
+	glMakeCurrent: extern(SDL_GL_MakeCurrent) static func (window: SdlWindow, context: SdlGlContext) -> Int
 	glSetSwapInterval: extern(SDL_GL_SetSwapInterval) static func (Interval: Int) -> Int
 	glGetSwapInterval: extern(SDL_GL_GetSwapInterval) static func -> Int
-	glSwapWindow: extern(SDL_GL_SwapWindow) static func (Void*/*SdlWindow*/)
+	glSwapWindow: extern(SDL_GL_SwapWindow) static func (window: SdlWindow)
 	glDeleteContext: extern(SDL_GL_DeleteContext) static func (context: SdlGlContext)
 	
 	/* Renderer */
 	getNumRenderDrivers: extern(SDL_GetNumRenderDrivers) static func -> Int
 	getRenderDriverInfo: extern(SDL_GetRenderDriverInfo) static func (index: Int, info: SdlRendererInfo*) -> Int
-	createWindowAndRenderer: extern(SDL_CreateWindowAndRenderer) static func (width, height: Int, windowFlags: UInt32, Void*/*SdlWindow*/, Void*/*SdlRenderer*/) -> Int
-	createRenderer: extern(SDL_CreateRenderer) static func (Void*/*SdlWindow*/, index: Int, flags: UInt32) -> Void*/*SdlRenderer*/ 
-	createSoftwareRenderer: extern(SDL_CreateSoftwareRenderer) static func (surface: SdlSurface*) -> Void*/*SdlRenderer*/ 
-	getRenderer: extern(SDL_GetRenderer) static func (Void*/*SdlWindow*/) -> Void*/*SdlRenderer*/ 
-	getRendererInfo: extern(SDL_GetRendererInfo) static func (Void*/*SdlRenderer*/, info: SdlRendererInfo*) -> Int
-	createTexture: extern(SDL_CreateTexture) static func (Void*/*SdlRenderer*/, format: UInt32, access, w, h: Int) -> Void*/*SdlTexture*/ 
-	createTextureFromSurface: extern(SDL_CreateTextureFromSurface) static func (Void*/*SdlRenderer*/, surface: SdlSurface*) -> Void*/*SdlTexture*/ 
-	queryTexture: extern(SDL_QueryTexture) static func (Void*/*SdlTexture*/, format: UInt32*, access, w, h: Int*) -> Int
-	setTextureColorMod: extern(SDL_SetTextureColorMod) static func (Void*/*SdlTexture*/, r, g, b: UInt8) -> Int
-	getTextureColorMod: extern(SDL_GetTextureColorMod) static func (Void*/*SdlTexture*/, r, g, b: UInt8*) -> Int
-	setTextureAlphaMod: extern(SDL_SetTextureAlphaMod) static func (Void*/*SdlTexture*/, alpha: UInt8) -> Int
-	getTextureAlphaMod: extern(SDL_GetTextureAlphaMod) static func (Void*/*SdlTexture*/, alpha: UInt8*) -> Int
-	setTextureBlendMode: extern(SDL_SetTextureBlendMode) static func (Void*/*SdlTexture*/, blendMode: Int) -> Int
-	getTextureBlendMode: extern(SDL_GetTextureBlendMode) static func (Void*/*SdlTexture*/, blendMode: Int*) -> Int
-	updateTexture: extern(SDL_UpdateTexture) static func (Void*/*SdlTexture*/, rect: const SdlRect*, pixels: const Void*, pitch: Int) -> Int
-	lockTexture: extern(SDL_LockTexture) static func (Void*/*SdlTexture*/, rect: const SdlRect*, pixels: Void*, pitch: Int*) -> Int
-	unlockTexture: extern(SDL_UnlockTexture) static func (Void*/*SdlTexture*/)
-	renderTargetSupported: extern(SDL_RenderTargetSupported) static func (Void*/*SdlRenderer*/) -> Bool
-	setRenderTarget: extern(SDL_SetRenderTarget) static func (Void*/*SdlRenderer*/, Void*/*SdlTexture*/) -> Int
-	getRenderTarget: extern(SDL_GetRenderTarget) static func (Void*/*SdlRenderer*/) -> Void*/*SdlTexture*/ 
-	renderSetLogicalSize: extern(SDL_RenderSetLogicalSize) static func (Void*/*SdlRenderer*/, w, h: Int) -> Int
-	renderGetLogicalSize: extern(SDL_RenderGetLogicalSize) static func (Void*/*SdlRenderer*/, w, y: Int*)
-	renderSetViewport: extern(SDL_RenderSetViewport) static func (Void*/*SdlRenderer*/, rect: const SdlRect*) -> Int
-	renderGetViewport: extern(SDL_RenderGetViewport) static func (Void*/*SdlRenderer*/, rect: SdlRect*)
-	renderSetScale: extern(SDL_RenderSetScale) static func (Void*/*SdlRenderer*/, scaleX, scaleY: Float) -> Int
-	renderGetScale: extern(SDL_RenderGetScale) static func (Void*/*SdlRenderer*/, scaleX, scaleY: Float*)
-	setRenderDrawColor: extern(SDL_SetRenderDrawColor) static func (Void*/*SdlRenderer*/, r, g, b, a: UInt8) -> Int
-	getRenderDrawColor: extern(SDL_GetRenderDrawColor) static func (Void*/*SdlRenderer*/, r, g, b, a: UInt8*) -> Int
-	setRenderDrawBlendMode: extern(SDL_SetRenderDrawBlendMode) static func (Void*/*SdlRenderer*/, blendMode: Int) -> Int
-	getRenderDrawBlendMode: extern(SDL_GetRenderDrawBlendMode) static func (Void*/*SdlRenderer*/, blendMode: Int*) -> Int
-	renderClear: extern(SDL_RenderClear) static func (Void*/*SdlRenderer*/) -> Int
-	renderDrawPoint: extern(SDL_RenderDrawPoint) static func (Void*/*SdlRenderer*/, x, y: Int) -> Int
-	renderDrawPoints: extern(SDL_RenderDrawPoints) static func (Void*/*SdlRenderer*/, points: const SdlPoint*, count: Int) -> Int
-	renderDrawLine: extern(SDL_RenderDrawLine) static func (Void*/*SdlRenderer*/, x1, y1, x2, y2: Int) -> Int
-	renderDrawLines: extern(SDL_RenderDrawLines) static func (Void*/*SdlRenderer*/, points: const SdlPoint*, count: Int) -> Int
-	renderDrawRect: extern(SDL_RenderDrawRect) static func (Void*/*SdlRenderer*/, rect: const SdlRect*) -> Int
-	renderDrawRects: extern(SDL_RenderDrawRects) static func (Void*/*SdlRenderer*/, rects: const SdlRect*, count: Int) -> Int
-	renderFillRect: extern(SDL_RenderFillRect) static func (Void*/*SdlRenderer*/, rect: const SdlRect*) -> Int
-	renderFillRects: extern(SDL_RenderFillRects) static func (Void*/*SdlRenderer*/, rects: const SdlRect*, count: Int) -> Int
-	renderCopy: extern(SDL_RenderCopy) static func (Void*/*SdlRenderer*/, Void*/*SdlTexture*/, srcrect, dstrect: const SdlRect*) -> Int
-	renderCopyEx: extern(SDL_RenderCopyEx) static func (Void*/*SdlRenderer*/, Void*/*SdlTexture*/, srcrect, dstrect: const SdlRect*, angle: const Double, center: const SdlPoint*, flip: const Int) -> Int
-	renderReadPixels: extern(SDL_RenderReadPixels) static func (Void*/*SdlRenderer*/, rect: const SdlRect*, format: UInt32, pixels: Void*, pitch: Int) -> Int
-	renderPresent: extern(SDL_RenderPresent) static func (Void*/*SdlRenderer*/)
-	destroyTexture: extern(SDL_DestroyTexture) static func (Void*/*SdlTexture*/)
-	destroyRenderer: extern(SDL_DestroyRenderer) static func (Void*/*SdlRenderer*/)
-	glBindTexture: extern(SDL_GL_BindTexture) static func (Void*/*SdlTexture*/, texw, texh: Float*) -> Int
+	createWindowAndRenderer: extern(SDL_CreateWindowAndRenderer) static func (width, height: Int, windowFlags: UInt32, window: SdlWindow, renderer: SdlRenderer) -> Int
+	createRenderer: extern(SDL_CreateRenderer) static func (window: SdlWindow, index: Int, flags: UInt32) -> SdlRenderer 
+	createSoftwareRenderer: extern(SDL_CreateSoftwareRenderer) static func (surface: SdlSurface*) -> SdlRenderer 
+	getRenderer: extern(SDL_GetRenderer) static func (window: SdlWindow) -> SdlRenderer 
+	getRendererInfo: extern(SDL_GetRendererInfo) static func (renderer: SdlRenderer, info: SdlRendererInfo*) -> Int
+	createTexture: extern(SDL_CreateTexture) static func (renderer: SdlRenderer, format: UInt32, access, w, h: Int) -> SdlTexture 
+	createTextureFromSurface: extern(SDL_CreateTextureFromSurface) static func (renderer: SdlRenderer, surface: SdlSurface*) -> SdlTexture 
+	queryTexture: extern(SDL_QueryTexture) static func (texture: SdlTexture, format: UInt32*, access, w, h: Int*) -> Int
+	setTextureColorMod: extern(SDL_SetTextureColorMod) static func (texture: SdlTexture, r, g, b: UInt8) -> Int
+	getTextureColorMod: extern(SDL_GetTextureColorMod) static func (texture: SdlTexture, r, g, b: UInt8*) -> Int
+	setTextureAlphaMod: extern(SDL_SetTextureAlphaMod) static func (texture: SdlTexture, alpha: UInt8) -> Int
+	getTextureAlphaMod: extern(SDL_GetTextureAlphaMod) static func (texture: SdlTexture, alpha: UInt8*) -> Int
+	setTextureBlendMode: extern(SDL_SetTextureBlendMode) static func (texture: SdlTexture, blendMode: Int) -> Int
+	getTextureBlendMode: extern(SDL_GetTextureBlendMode) static func (texture: SdlTexture, blendMode: Int*) -> Int
+	updateTexture: extern(SDL_UpdateTexture) static func (texture: SdlTexture, rect: const SdlRect*, pixels: const Void*, pitch: Int) -> Int
+	lockTexture: extern(SDL_LockTexture) static func (texture: SdlTexture, rect: const SdlRect*, pixels: Void*, pitch: Int*) -> Int
+	unlockTexture: extern(SDL_UnlockTexture) static func (texture: SdlTexture)
+	renderTargetSupported: extern(SDL_RenderTargetSupported) static func (renderer: SdlRenderer) -> Bool
+	setRenderTarget: extern(SDL_SetRenderTarget) static func (renderer: SdlRenderer, texture: SdlTexture) -> Int
+	getRenderTarget: extern(SDL_GetRenderTarget) static func (renderer: SdlRenderer) -> SdlTexture 
+	renderSetLogicalSize: extern(SDL_RenderSetLogicalSize) static func (renderer: SdlRenderer, w, h: Int) -> Int
+	renderGetLogicalSize: extern(SDL_RenderGetLogicalSize) static func (renderer: SdlRenderer, w, y: Int*)
+	renderSetViewport: extern(SDL_RenderSetViewport) static func (renderer: SdlRenderer, rect: const SdlRect*) -> Int
+	renderGetViewport: extern(SDL_RenderGetViewport) static func (renderer: SdlRenderer, rect: SdlRect*)
+	renderSetScale: extern(SDL_RenderSetScale) static func (renderer: SdlRenderer, scaleX, scaleY: Float) -> Int
+	renderGetScale: extern(SDL_RenderGetScale) static func (renderer: SdlRenderer, scaleX, scaleY: Float*)
+	setRenderDrawColor: extern(SDL_SetRenderDrawColor) static func (renderer: SdlRenderer, r, g, b, a: UInt8) -> Int
+	getRenderDrawColor: extern(SDL_GetRenderDrawColor) static func (renderer: SdlRenderer, r, g, b, a: UInt8*) -> Int
+	setRenderDrawBlendMode: extern(SDL_SetRenderDrawBlendMode) static func (renderer: SdlRenderer, blendMode: Int) -> Int
+	getRenderDrawBlendMode: extern(SDL_GetRenderDrawBlendMode) static func (renderer: SdlRenderer, blendMode: Int*) -> Int
+	renderClear: extern(SDL_RenderClear) static func (renderer: SdlRenderer) -> Int
+	renderDrawPoint: extern(SDL_RenderDrawPoint) static func (renderer: SdlRenderer, x, y: Int) -> Int
+	renderDrawPoints: extern(SDL_RenderDrawPoints) static func (renderer: SdlRenderer, points: const SdlPoint*, count: Int) -> Int
+	renderDrawLine: extern(SDL_RenderDrawLine) static func (renderer: SdlRenderer, x1, y1, x2, y2: Int) -> Int
+	renderDrawLines: extern(SDL_RenderDrawLines) static func (renderer: SdlRenderer, points: const SdlPoint*, count: Int) -> Int
+	renderDrawRect: extern(SDL_RenderDrawRect) static func (renderer: SdlRenderer, rect: const SdlRect*) -> Int
+	renderDrawRects: extern(SDL_RenderDrawRects) static func (renderer: SdlRenderer, rects: const SdlRect*, count: Int) -> Int
+	renderFillRect: extern(SDL_RenderFillRect) static func (renderer: SdlRenderer, rect: const SdlRect*) -> Int
+	renderFillRects: extern(SDL_RenderFillRects) static func (renderer: SdlRenderer, rects: const SdlRect*, count: Int) -> Int
+	renderCopy: extern(SDL_RenderCopy) static func (renderer: SdlRenderer, texture: SdlTexture, srcrect, dstrect: const SdlRect*) -> Int
+	renderCopyEx: extern(SDL_RenderCopyEx) static func (renderer: SdlRenderer, texture: SdlTexture, srcrect, dstrect: const SdlRect*, angle: const Double, center: const SdlPoint*, flip: const Int) -> Int
+	renderReadPixels: extern(SDL_RenderReadPixels) static func (renderer: SdlRenderer, rect: const SdlRect*, format: UInt32, pixels: Void*, pitch: Int) -> Int
+	renderPresent: extern(SDL_RenderPresent) static func (renderer: SdlRenderer)
+	destroyTexture: extern(SDL_DestroyTexture) static func (texture: SdlTexture)
+	destroyRenderer: extern(SDL_DestroyRenderer) static func (renderer: SdlRenderer)
+	glBindTexture: extern(SDL_GL_BindTexture) static func (texture: SdlTexture, texw, texh: Float*) -> Int
 	
 	/* Surfaces */
 	createRGBSurface: extern(SDL_CreateRGBSurface) static func (flags: UInt32, width, height, depth: Int, rMask, gMask, bMask, aMask: UInt32) -> SdlSurface*
@@ -346,7 +340,7 @@ SDL: cover {
 	blitScaled: extern(SDL_BlitScaled) static func (src: SdlSurface*, srcrect: const SdlRect*, dst: SdlSurface*, dstrect: SdlRect*) -> Int
 	
 	/* Keyboard */
-	getKeyboardFocus: extern(SDL_GetKeyboardFocus) static func -> Void*/*SdlWindow*/
+	getKeyboardFocus: extern(SDL_GetKeyboardFocus) static func -> SdlWindow
 	getKeyboardState: extern(SDL_GetKeyboardState) static func(numkeys: Int*) -> UInt8*
 	getModState: extern(SDL_GetModState) static func -> Int
 	setModState: extern(SDL_SetModState) static func(modstate: Int)
@@ -361,6 +355,6 @@ SDL: cover {
 	stopTextInput: extern(SDL_StopTextInput) static func
 	setTextInputRect: extern(SDL_SetTextInputRect) static func(rect: SdlRect*)
 	hasScreenKeyboardSupport: extern(SDL_HasScreenKeyboardSupport) static func -> Bool
-	isScreenKeyboardShown: extern(SDL_IsScreenKeyboardShown) static func(window: Void*/*SdlWindow*/) -> Bool
+	isScreenKeyboardShown: extern(SDL_IsScreenKeyboardShown) static func(window: SdlWindow) -> Bool
 
 }
