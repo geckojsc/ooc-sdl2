@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/geckojsc/ooc-sdl2.png?branch=master)](https://travis-ci.org/geckojsc/ooc-sdl2)
+
 ## ooc-sdl
 
 SDL 2.0 bindings for ooc. SDL is a thin layer to handle windowing, basic
