@@ -1,4 +1,4 @@
 Name: SDL_image 2.0
 Description: Image loading extension for SDL
-Includes: SDL2/SDL_image.h
+Includes: SDL_image.h
 Libs: -lSDL2_image

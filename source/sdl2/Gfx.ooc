@@ -1,6 +1,6 @@
-use sdl
-use sdl-gfx
+use sdl, sdl-gfx
 import sdl/Core
+include SDL
 
 FpsManager: cover from FPSmanager {
 	

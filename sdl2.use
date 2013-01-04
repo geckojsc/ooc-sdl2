@@ -1,6 +1,4 @@
 Name: SDL 2.0
 Description: Simple DirectMedia Library
-Pkgs: sdl2
-Includes: SDL2/SDL.h
 SourcePath: source
-Libs: -lSDL2main, -lSDL2
+CustomPkg: sdl2-config

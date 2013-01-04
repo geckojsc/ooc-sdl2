@@ -1,3 +1,4 @@
-window
-loadpng
-spinning
+*
+!*.png
+!*.bmp
+!*.ooc
