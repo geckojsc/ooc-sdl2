@@ -28,8 +28,8 @@ main: func (argc: Int, argv: CString*) {
 	
 	while (!done) {
 		
-		e: Event
-		while (SDLEvent poll(e&)) {
+		e: SdlEvent
+		while (SdlEvent poll(e&)) {
 			if (e type == SDL_QUIT)
 				done = true
 		}

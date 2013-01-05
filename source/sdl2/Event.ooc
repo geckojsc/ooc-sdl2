@@ -2,36 +2,39 @@ use sdl2
 import sdl2/Core
 include SDL
 
-Motion: cover from SDL_MouseMotionEvent {
-	x,y: extern Int
-	xrel, yrel: extern Int
+SdlMouseMotionEvent: cover from SDL_MouseMotionEvent {
+    x, y: extern Int
+    xrel, yrel: extern Int
 }
 
-Keysym: cover from SDL_Keysym {
-	sym: extern Int
-	scancode: extern Int
+SdlKeysym: cover from SDL_Keysym {
+    sym: extern Int
+    scancode: extern Int
 }
 
-Button: cover from SDL_MouseButtonEvent {
-	button: extern Int
+SdlMouseButtonEvent: cover from SDL_MouseButtonEvent {
+    button: extern Int
 }
 
-Key: cover from SDL_KeyboardEvent {
-	keysym: extern Keysym
+SdlKeyboardEvent: cover from SDL_KeyboardEvent {
+    keysym: extern SdlKeysym
 }
 
-Event: cover from SDL_Event {
-	type: extern Int
-	key: extern Key
-	motion: extern Motion
-	button: extern Button
+SdlWindowEvent: cover from SDL_WindowEvent {
+    event: extern Int
+    data1, data2: extern Int
 }
 
+SdlEvent: cover from SDL_Event {
+    type: extern Int
+    key: extern SdlKeyboardEvent
+    motion: extern SdlMouseMotionEvent
+    button: extern SdlMouseButtonEvent
+    window: extern SdlWindowEvent
 
-SDLEvent: cover {
-	wait: extern(SDL_WaitEvent) static func(Event*) -> Int
-	poll: extern(SDL_PollEvent) static func(Event*) -> Int
-	pump: extern(SDL_PumpEvents) static func
+    wait: extern(SDL_WaitEvent) static func(SdlEvent*) -> Int
+    poll: extern(SDL_PollEvent) static func(SdlEvent*) -> Int
+    pump: extern(SDL_PumpEvents) static func
 }
 
 
@@ -304,6 +307,22 @@ SDL_BUTTON_MIDDLE    : extern Int
 SDL_BUTTON_LEFT      : extern Int
 SDL_BUTTON_WHEELDOWN : extern Int
 SDL_MOUSEMOTION      : extern Int
+SDL_WINDOWEVENT      : extern Int
+
+SDL_WINDOWEVENT_SHOWN             : extern Int
+SDL_WINDOWEVENT_HIDDEN            : extern Int
+SDL_WINDOWEVENT_EXPOSED           : extern Int
+SDL_WINDOWEVENT_MOVED             : extern Int
+SDL_WINDOWEVENT_RESIZED           : extern Int
+SDL_WINDOWEVENT_SIZE_CHANGED      : extern Int
+SDL_WINDOWEVENT_MINIMIZED         : extern Int
+SDL_WINDOWEVENT_MAXIMIZED         : extern Int
+SDL_WINDOWEVENT_RESTORED          : extern Int
+SDL_WINDOWEVENT_ENTER             : extern Int
+SDL_WINDOWEVENT_LEAVE             : extern Int
+SDL_WINDOWEVENT_FOCUS_GAINED      : extern Int
+SDL_WINDOWEVENT_FOCUS_LOST        : extern Int
+SDL_WINDOWEVENT_CLOSE             : extern Int
 
 KMOD_LCTRL  : extern Int
 KMOD_RCTRL  : extern Int
