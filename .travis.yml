@@ -2,9 +2,9 @@ before_install:
   - sudo apt-get -y -qq install curl make libgc-dev
   - git clone --depth=1 git://github.com/nddrylliog/rock.git 
   - (cd rock && make -s quick-rescue)
-  - export PATH=$PATH:$PWD/rock/bin
   - mkdir dummyprefix
   - export PREFIX=$PWD/dummyprefix
+  - export PATH=$PATH:$PWD/rock/bin:$PWD/dummyprefix/bin
   - hg clone http://hg.libsdl.org/SDL && mkdir SDL_build
   - (cd SDL_build && ../SDL/configure --prefix=$PREFIX && make -j5 && make install)
   - hg clone http://hg.libsdl.org/SDL_image
