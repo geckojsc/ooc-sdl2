@@ -181,6 +181,8 @@ SDL: cover {
 	showCursor: extern(SDL_ShowCursor) static func (Bool)
 	getRelativeMouseState: extern(SDL_GetRelativeMouseState) static func (Int*, Int*) -> UInt8
         setRelativeMouseMode: extern(SDL_SetRelativeMouseMode) static func (Bool) -> Int
+        warpMouseInWindow: extern(SDL_WarpMouseInWindow) static func (SdlWindow, Int, Int)
+
 	delay: extern(SDL_Delay) static func (UInt32)
 	
 	mapRgb: extern(SDL_MapRGB) static func (SdlPixelFormat*, r, g, b: UInt8) -> UInt32
