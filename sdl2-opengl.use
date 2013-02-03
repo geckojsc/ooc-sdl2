@@ -1,0 +1,3 @@
+Name: SDL 2.0 OpenGL support
+Description:
+Libs: -lGL

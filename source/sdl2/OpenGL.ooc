@@ -5,6 +5,8 @@ version (android || ios) {
   include SDL_opengl
 }
 
+use sdl2-opengl
+
 GLenum: extern cover from UInt extends SSizeT
 GLbitfield: extern cover from UInt
 GLuint: extern cover from UInt extends SSizeT
