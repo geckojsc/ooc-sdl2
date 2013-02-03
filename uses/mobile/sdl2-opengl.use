@@ -1,0 +1,7 @@
+Name: SDL 2.0 OpenGL support
+Description: OpenGL headers + libraries for SDL2
+Require: sdl2
+
+# Use OpenGL ES 2.x on mobile
+Libs: -lGLESv2
+Includes: SDL_opengles2.h

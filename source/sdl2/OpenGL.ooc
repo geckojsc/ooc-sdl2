@@ -1,10 +1,7 @@
 
-version (android || ios) {
-  include SDL_opengles2
-} else {
-  include SDL_opengl
-}
-
+/*
+ * See sdl-opengl.use in ooc-sdl2/
+ */
 use sdl2-opengl
 
 GLenum: extern cover from UInt extends SSizeT

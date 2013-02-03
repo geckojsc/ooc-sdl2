@@ -1,3 +1,11 @@
 Name: SDL 2.0 OpenGL support
-Description:
+Description: OpenGL headers + libraries for SDL2
+Require: sdl2
+
+# Use OpenGL 2.x on Linux/Mac
 Libs: -lGL
+Includes: SDL_opengl.h
+
+# To override those values, put uses/mobile or uses/win32
+# somewhere in your $OOC_LIBS path before the folder where
+# ooc-sdl2 is
