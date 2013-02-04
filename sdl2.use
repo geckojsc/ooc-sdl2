@@ -3,3 +3,6 @@ Description: Simple DirectMedia Library
 SourcePath: source
 CustomPkg: sdl2-config
 PreMains: -lmingw32, -lSDL2main
+
+AndroidLibs: SLD2
+AndroidIncludePaths: ../SDL/include
