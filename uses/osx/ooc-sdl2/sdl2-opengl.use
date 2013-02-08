@@ -1,0 +1,7 @@
+Name: SDL 2.0 OpenGL support
+Description: OpenGL headers + libraries for SDL2
+Requires: sdl2
+
+# Use OpenGL 2.x on Windows
+Frameworks: Carbon, OpenGL
+Includes: SDL_opengl.h
