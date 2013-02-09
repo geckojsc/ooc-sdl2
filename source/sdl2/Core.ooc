@@ -86,6 +86,11 @@ SDL_BLENDMODE_BLEND: extern const Int /* dst = (src * A) + (dst * (1-A)) */
 SDL_BLENDMODE_ADD  : extern const Int /* dst = (src * A) + dst */
 SDL_BLENDMODE_MOD  : extern const Int /* dst = src * dst */
 
+/* Endianness-related constants */
+SDL_BYTEORDER  : extern const Int
+SDL_BIG_ENDIAN : extern const Int
+SDL_LIL_ENDIAN : extern const Int
+
 SdlRect: cover from SDL_Rect {
 	x, y: extern Int16
 	w, h: extern UInt16
