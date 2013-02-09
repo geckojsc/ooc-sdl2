@@ -362,3 +362,8 @@ SDL: cover {
 	isScreenKeyboardShown: extern(SDL_IsScreenKeyboardShown) static func(window: SdlWindow) -> Bool
 
 }
+
+version (android) {
+    SDL_AndroidGetInternalStoragePath: extern func -> CString
+}
+
