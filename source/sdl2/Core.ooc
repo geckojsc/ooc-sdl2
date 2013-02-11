@@ -175,12 +175,12 @@ SDL: cover {
 	quitSubSystem: extern(SDL_QuitSubSystem) static func (UInt32)
 	quit: extern(SDL_Quit) static func
 	wasInit: extern (SDL_WasInit) static func (UInt32) -> Int
-	getError: extern(SDL_GetError) static func -> String
-	setError: extern(SDL_SetError) static func (const String, ...)
+	getError: extern(SDL_GetError) static func -> CString
+	setError: extern(SDL_SetError) static func (const CString, ...)
 	//error: extern(SDL_Error) static func (extern(SDL_errorcode))
 	clearError: extern(SDL_ClearError) static func
-	loadObject: extern(SDL_LoadObject) static func (const String) -> Void*
-	loadFunction: extern(SDL_LoadFunction) static func (Void* , const String) -> Void*
+	loadObject: extern(SDL_LoadObject) static func (const CString) -> Void*
+	loadFunction: extern(SDL_LoadFunction) static func (Void* , const CString) -> Void*
 	unloadObject: extern(SDL_UnloadObject) static func (Void*)
 	getTicks: extern(SDL_GetTicks) static func -> Int
 	showCursor: extern(SDL_ShowCursor) static func (Bool)
