@@ -13,7 +13,7 @@ main: func (argc: Int, argv: CString*) {
 	renderer := SDL createRenderer(window, -1, SDL_RENDERER_ACCELERATED)
 	
 	// load an image and make the background transparent
-	podlySurface := SDL loadBMP("podly.bmp")
+	podlySurface := SDL loadBMP("assets/podly.bmp")
 	SDL setColorKey(podlySurface, true, SDL mapRgb(podlySurface@ format, 255, 0, 255))
 	
 	// create a hardware accelerated version of the image

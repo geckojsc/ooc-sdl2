@@ -1,5 +1,5 @@
 *
-!*.png
-!*.bmp
-!*.wav
+!assets/*.png
+!assets/*.bmp
+!assets/*.wav
 !*.ooc

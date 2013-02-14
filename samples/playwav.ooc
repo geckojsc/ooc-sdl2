@@ -35,11 +35,11 @@ main: func(argc:Int, argv:CString*) {
 	
 	wav: SdlAudioSpec  // sample rate, depth, number of channels, etc.
 	wavData: UInt8*
-	wavLen: UInt32     // Number of bytes
+	wavLen: UInt32     // number of bytes
 	
-	SdlAudio loadWAV("trololo3.wav", wav&, wavData&, wavLen&)
+	SdlAudio loadWAV("assets/trololo3.wav", wav&, wavData&, wavLen&)
 	
-	// to convert the wav data to the same format as the spec:
+	// to convert wav data to the same format as the used by the spec:
 	converter: SdlAudioConverter
 	SdlAudio buildConverter(
 		converter&,
@@ -50,7 +50,7 @@ main: func(argc:Int, argv:CString*) {
 		spec channels,
 		spec freq)
 	
-	// fill with the unconverted data, with enough space to hold the converted data
+	// fill with unconverted data, with enough space to hold the converted data
 	converter len = wavLen
 	converter buf = gc_malloc(wavLen * converter len_mult)
 	memcpy(converter buf, wavData, wavLen)

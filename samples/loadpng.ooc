@@ -15,7 +15,7 @@ main: func (argc: Int, argv: CString*) {
 	renderer := SDL createRenderer(window, -1, SDL_RENDERER_ACCELERATED)
 	
 	// Load a PNG as a surface
-	podlySurface := SDLImage load("translucent_podly.png")
+	podlySurface := SDLImage load("assets/translucent_podly.png")
 	
 	if (podlySurface == null) {
 		"Error loading image, %s" printfln(SDL getError())
