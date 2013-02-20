@@ -30,8 +30,9 @@ main: func(argc:Int, argv:CString*) {
 	spec samples = 512
 	spec callback = mix
 	
-	// assume the desired spec was obtained (works on most systems)
-	SdlAudio open(spec&, null)
+	// force SDL to use the desired spec
+	if (SdlAudio open(spec&, null) < 0)
+		Exception new("[Failed to open audio device!] %s" format(SDL getError())) throw()
 	
 	wav: SdlAudioSpec  // sample rate, depth, number of channels, etc.
 	wavData: UInt8*
@@ -39,7 +40,7 @@ main: func(argc:Int, argv:CString*) {
 	
 	SdlAudio loadWAV("assets/trololo3.wav", wav&, wavData&, wavLen&)
 	
-	// to convert wav data to the same format as the used by the spec:
+	// to convert wav data to the same format as used by the spec:
 	converter: SdlAudioConverter
 	SdlAudio buildConverter(
 		converter&,
