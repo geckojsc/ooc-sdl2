@@ -2,25 +2,33 @@ Name: SDL 2.0 OpenGL support
 Description: OpenGL headers + libraries for SDL2
 Requires: sdl2
 
+# Desktop platforms
 version (linux || windows || mac) {
   Includes: SDL_opengl.h
-} else version (android || ios) {
+
+  version (linux) {
+    Libs: -lGL
+  }
+
+  version (windows) {
+    Libs: -lopengl32
+  }
+
+  version (apple) {
+    Frameworks: OpenGL, Carbon
+  }
+}
+
+# Mobile platforms
+version (android || ios) {
   Includes: SDL_opengles2.h
-}
 
-version (linux) {
-  Libs: -lGL
-}
+  version (android) {
+    Libs: -lGLESv2
+  }
 
-version (windows) {
-  Libs: -lopengl32
-}
-
-version (apple && !ios) {
-  Frameworks: Carbon, OpenGL
-}
-
-version (android) {
-  Libs: -lGLESv2
+  version (ios) {
+    Frameworks: OpenGLES, QuartzCore
+  }
 }
 
