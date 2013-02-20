@@ -1,7 +1,0 @@
-Name: SDL 2.0 OpenGL support
-Description: OpenGL headers + libraries for SDL2
-Requires: sdl2
-
-# Use OpenGL 2.x on Windows
-Libs: -lopengl32
-Includes: SDL_opengl.h
