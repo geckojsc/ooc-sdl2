@@ -3,7 +3,7 @@ Description: OpenGL headers + libraries for SDL2
 Requires: sdl2
 
 # Desktop platforms
-version (linux || windows || mac) {
+version (linux || windows || (apple && !ios)) {
   Includes: SDL_opengl.h
 
   version (linux) {
