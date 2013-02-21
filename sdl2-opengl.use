@@ -11,8 +11,6 @@ version (linux || windows || (apple && !ios)) {
 
   version (windows) {
     Requires: glew
-    Pkgs: glew
-    Includes: glew.h
     Libs: -lopengl32
   }
 
