@@ -4,6 +4,10 @@
  */
 use sdl2-opengl
 
+version (windows) {
+    glewInit: extern func -> Int
+}
+
 GLenum: extern cover from UInt extends SSizeT
 GLbitfield: extern cover from UInt
 GLuint: extern cover from UInt extends SSizeT
