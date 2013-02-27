@@ -1,6 +1,5 @@
 use sdl2
 import sdl2/Core
-include SDL
 
 SdlMouseMotionEvent: cover from SDL_MouseMotionEvent {
     x, y: extern Int

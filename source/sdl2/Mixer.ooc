@@ -1,4 +1,4 @@
-use sdl-mixer
+use sdl2-mixer
 
 MixFormat: enum {
     default: extern(MIX_DEFAULT_FORMAT)

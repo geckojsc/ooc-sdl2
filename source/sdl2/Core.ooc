@@ -1,5 +1,4 @@
 use sdl2
-include SDL
 	
 SDL_INIT_TIMER      : extern const Int
 SDL_INIT_AUDIO      : extern const Int

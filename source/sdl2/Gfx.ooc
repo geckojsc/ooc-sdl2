@@ -1,6 +1,6 @@
-use sdl, sdl-gfx
-import sdl/Core
-include SDL
+use sdl2, sdl2-gfx
+import sdl2/Core
+include SDL2
 
 FpsManager: cover from FPSmanager {
 	
