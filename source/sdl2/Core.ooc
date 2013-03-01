@@ -184,12 +184,15 @@ SDL: cover {
 	getTicks: extern(SDL_GetTicks) static func -> Int
 	showCursor: extern(SDL_ShowCursor) static func (Bool)
 	getRelativeMouseState: extern(SDL_GetRelativeMouseState) static func (Int*, Int*) -> UInt8
-        setRelativeMouseMode: extern(SDL_SetRelativeMouseMode) static func (Bool) -> Int
-        warpMouseInWindow: extern(SDL_WarpMouseInWindow) static func (SdlWindow, Int, Int)
+    setRelativeMouseMode: extern(SDL_SetRelativeMouseMode) static func (Bool) -> Int
+    warpMouseInWindow: extern(SDL_WarpMouseInWindow) static func (SdlWindow, Int, Int)
 
 	delay: extern(SDL_Delay) static func (UInt32)
 	
-	mapRgb: extern(SDL_MapRGB) static func (SdlPixelFormat*, r, g, b: UInt8) -> UInt32
+	mapRgb: extern(SDL_MapRGB) static func (f:SdlPixelFormat*, r, g, b: UInt8) -> UInt32
+	mapRgba: extern(SDL_MapRGBA) static func (f:SdlPixelFormat*, r, g, b, a: UInt8) -> UInt32
+	getRgb: extern(SDL_GetRGB) static func (pixel:UInt32, f:SdlPixelFormat*, r, g, b:UInt8*) -> UInt32
+	getRgba: extern(SDL_GetRGBA) static func (pixel:UInt32, f:SdlPixelFormat*, r, g, b, a:UInt8*) -> UInt32
 	
 	
 	/* Video */
