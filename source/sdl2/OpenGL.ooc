@@ -4,7 +4,7 @@
  */
 use sdl2-opengl
 
-version (windows) {
+version (windows || linux) {
     glewInit: extern func -> Int
 }
 
