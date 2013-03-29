@@ -17,6 +17,9 @@ MixChunk: cover from Mix_Chunk* {
         Mix_PlayChannel(channel, this, loops)
     }
 
+    volume: extern(Mix_VolumeChunk) func (volume: Int) -> Int
+    free: extern(Mix_FreeChunk) func
+
 }
 
 Mix_PlayChannel: extern func (channel: Int, chunk: MixChunk, loops: Int) -> Int
@@ -43,6 +46,9 @@ Mix: class {
     haltChannel: static extern(Mix_HaltChannel) func (channel: Int)
 
     getChunk: static extern(Mix_GetChunk) func (channel: Int) -> MixChunk
+
+    volume: static extern(Mix_Volume) func (channel: Int, volume: Int) -> Int
+    volumeMusic: static extern(Mix_VolumeMusic) func (volume: Int) -> Int
 
 }
 
