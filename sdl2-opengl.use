@@ -17,7 +17,8 @@ version (linux || windows || (apple && !ios)) {
   }
 
   version (apple) {
-    Includes: SDL_opengl.h
+    Pkgs: glew
+    Includes: glew.h
     Frameworks: OpenGL, Carbon
   }
 }
