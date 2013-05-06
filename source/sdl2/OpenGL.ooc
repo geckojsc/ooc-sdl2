@@ -5,6 +5,7 @@
 use sdl2-opengl
 
 version (windows || linux || apple) {
+    glewExperimental: extern Bool
     glewInit: extern func -> Int
 }
 
