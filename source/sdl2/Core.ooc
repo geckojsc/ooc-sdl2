@@ -184,6 +184,7 @@ SDL: cover {
 	unloadObject: extern(SDL_UnloadObject) static func (Void*)
 	getTicks: extern(SDL_GetTicks) static func -> Int
 	showCursor: extern(SDL_ShowCursor) static func (Bool)
+        getMouseState: extern(SDL_GetMouseState) static func (Int*, Int*) -> UInt8
 	getRelativeMouseState: extern(SDL_GetRelativeMouseState) static func (Int*, Int*) -> UInt8
         setRelativeMouseMode: extern(SDL_SetRelativeMouseMode) static func (Bool) -> Int
         warpMouseInWindow: extern(SDL_WarpMouseInWindow) static func (SdlWindow, Int, Int)
