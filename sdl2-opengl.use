@@ -5,17 +5,20 @@ Requires: sdl2
 # Desktop platforms
 version (linux || windows || (apple && !ios)) {
   version (linux) {
-    Includes: SDL_opengl.h
-    Libs: -lGL
+    Pkgs: glew
+    Includes: glew.h
+    Libs: -lGLEW
   }
 
   version (windows) {
-    Requires: glew
+    Pkgs: glew
+    Includes: glew.h
     Libs: -lopengl32
   }
 
   version (apple) {
-    Includes: SDL_opengl.h
+    Pkgs: glew
+    Includes: glew.h
     Frameworks: OpenGL, Carbon
   }
 }

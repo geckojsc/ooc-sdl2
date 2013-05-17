@@ -3,6 +3,7 @@ Description: Simple DirectMedia Layer
 SourcePath: source
 CustomPkg: sdl2-config
 PreMains: -lmingw32, -lSDL2main
+Includes: SDL.h
 
 AndroidLibs: SDL2
 AndroidIncludePaths: ../SDL/include

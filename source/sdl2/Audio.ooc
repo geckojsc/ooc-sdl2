@@ -1,6 +1,5 @@
 use sdl2
 import sdl2/[Core, RW]
-include SDL
 
 
 // SDL_AudioFormat

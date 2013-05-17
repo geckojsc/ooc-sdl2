@@ -1,0 +1,5 @@
+Name: SDL_gfx 2.0
+Description: Graphic primitives for SDL
+Includes: SDL2_framerate.h, SDL2_gfxPrimitives.h, SDL2_imageFilter.h, SDL2_rotozoom.h
+Libs: -lSDL2_gfx
+
