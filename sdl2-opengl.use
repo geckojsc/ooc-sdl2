@@ -7,7 +7,7 @@ version (linux || windows || (apple && !ios)) {
   version (linux) {
     Pkgs: glew
     Includes: glew.h
-    Libs: -lGLEW -lGL
+    Libs: -lGLEW, -lGL
   }
 
   version (windows) {
