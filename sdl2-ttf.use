@@ -1,4 +1,4 @@
 Name: SDL_ttf 2.0
 Description: Font loading extension for SDL
-Includes: SDL2/SDL_ttf.h
+Includes: SDL_ttf.h
 Libs: -lSDL2_ttf
