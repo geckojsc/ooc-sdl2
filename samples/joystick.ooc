@@ -1,5 +1,5 @@
 use sdl2
-import sdl2/[Core, Joystick]
+import sdl2/[Core, Event, Joystick]
 
 main: func (argc: Int, argv: CString*) {
 	
@@ -24,6 +24,9 @@ main: func (argc: Int, argv: CString*) {
         numJoys := SdlJoystick num()
         "Found %d joysticks" printfln(numJoys)
 
+        "Will start demo in 2 seconds..." println()
+        SDL delay(2000)
+
         SdlJoystick eventState(SdlJoystickEventState query)
 
         for (i in 0..numJoys) {
@@ -40,20 +43,39 @@ main: func (argc: Int, argv: CString*) {
             "%d axes" printfln(joy numAxes())
 
             while (true) {
-                "buttons: " print()
-                for (i in 0..joy numButtons()) {
-                    "%d " format(joy getButton(i) as Int) print()
+                numButtons := joy numButtons()
+
+                if (numButtons > 0) {
+                    "buttons: " print()
+                    for (i in 0..numButtons) {
+                        "%d " format(joy getButton(i) as Int) print()
+                    }
                 }
 
-                "axis: " print()
-                for (i in 0..joy numAxes()) {
-                    "%d " format(joy getAxis(i) as Int) print()
+                numAxes := joy numAxes()
+
+                if (numAxes > 0) {
+                    "axis: " print()
+                    for (i in 0..numAxes) {
+                        "%d " format(joy getAxis(i) as Int) print()
+                    }
+                }
+
+                numHats := joy numHats()
+
+                if (numHats > 0) {
+                    "hats: " print()
+                    for (i in 0..numHats) {
+                        "%d " format(joy getHat(i) as Int) print()
+                    }
                 }
 
                 println()
                 SDL delay(20)
                 SDL renderClear(renderer)
                 SDL renderPresent(renderer)
+
+                SdlEvent pump()
                 SdlJoystick update()
             }
 
