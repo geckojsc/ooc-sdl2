@@ -4,13 +4,14 @@ before_install:
   - (cd rock && make -s quick-rescue)
   - mkdir dummyprefix
   - export PREFIX=$PWD/dummyprefix
+  - export PKG_CONFIG_PATH=$PREFIX/lib/pkgconfig
   - export PATH=$PATH:$PWD/rock/bin:$PWD/dummyprefix/bin
-  - hg clone http://hg.libsdl.org/SDL && mkdir SDL_build
-  - (cd SDL_build && ../SDL/configure --prefix=$PREFIX && make -j5 && make install)
-  - hg clone http://hg.libsdl.org/SDL_image
-  - (cd SDL_image && ./configure --prefix=$PREFIX && make -j5 && make install)
-  - hg clone http://hg.libsdl.org/SDL_mixer
-  - (cd SDL_mixer && ./configure --prefix=$PREFIX && make -j5 && make install)
+  - wget http://libsdl.org/release/SDL2-2.0.1.tar.gz -O - | tar xzm
+  - (cd SDL2-2.0.1 && ./configure --prefix=$PREFIX && make -j5 && make install)
+  - wget http://www.libsdl.org/projects/SDL_image/release/SDL2_image-2.0.0.tar.gz -O - | tar xzm
+  - (cd SDL2_image-2.0.0 && ./configure --prefix=$PREFIX && make -j5 && make install)
+  - wget http://www.libsdl.org/projects/SDL_mixer/release/SDL2_mixer-2.0.0.tar.gz -O - | tar xzm
+  - (cd SDL2_mixer-2.0.0 && ./configure --prefix=$PREFIX && make -j5 && make install)
 
 script:
   - export OOC_LIBS=$PWD
