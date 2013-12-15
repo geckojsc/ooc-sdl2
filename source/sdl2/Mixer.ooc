@@ -50,5 +50,7 @@ Mix: class {
     volume: static extern(Mix_Volume) func (channel: Int, volume: Int) -> Int
     volumeMusic: static extern(Mix_VolumeMusic) func (volume: Int) -> Int
 
+    getError: static extern(Mix_GetError) func -> CString
+
 }
 

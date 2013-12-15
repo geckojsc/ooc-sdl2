@@ -3,3 +3,4 @@ samples/window.exe
 samples/.libs
 *.sublime-project
 *.sublime-workspace
+.sam-cache
