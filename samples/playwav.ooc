@@ -2,15 +2,15 @@ use sdl2
 import sdl2/[Core, Audio]
 
 soundData: UInt8*
-soundLength: UInt32 = 0
-soundPos: UInt32 = 0
+soundLength := 0
+soundPos := 0
 
-// called by SDL when it wants to recieve some sound data:
+// called by SDL when it wants to receive some sound data:
 
-mix: func (userdata:Pointer, stream:UInt8*, len:Int) {
+mix: func (userdata: Pointer, stream: UInt8*, len: Int) {
 	memset(stream, 0, len)
 	
-	remaining := soundLength-soundPos
+	remaining := soundLength - soundPos
 	if (remaining == 0) return
 	if (remaining < len) len = remaining
 	

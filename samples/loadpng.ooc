@@ -19,7 +19,7 @@ main: func (argc: Int, argv: CString*) {
 	
 	if (podlySurface == null) {
 		"Error loading image, %s" printfln(SDL getError())
-		return 1
+		exit(1)
 	}
 	
 	// Create a hardware-accelerated image:
