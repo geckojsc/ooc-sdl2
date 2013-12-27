@@ -11,6 +11,7 @@ SDL_INIT_EVERYTHING : extern const Int
 
 /* SDL_WindowFlags */
 SDL_WINDOW_FULLSCREEN   : extern const Int /* fullscreen window */
+SDL_WINDOW_FULLSCREEN_DESKTOP : extern const Int /* fullscreen window at the current desktop resolution */
 SDL_WINDOW_OPENGL       : extern const Int /* window usable with OpenGL context */
 SDL_WINDOW_SHOWN        : extern const Int /* window is visible */
 SDL_WINDOW_HIDDEN       : extern const Int /* window is not visible */
