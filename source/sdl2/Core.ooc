@@ -239,7 +239,7 @@ SDL: cover {
 	maximizeWindow: extern(SDL_MaximizeWindow) static func (window: SdlWindow)
 	minimizeWindow: extern(SDL_MinimizeWindow) static func (window: SdlWindow)
 	restoreWindow: extern(SDL_RestoreWindow) static func (window: SdlWindow)
-	setWindowFullscreen: extern(SDL_SetWindowFullscreen) static func (window: SdlWindow, fullscreen: Bool) -> Int
+	setWindowFullscreen: extern(SDL_SetWindowFullscreen) static func (window: SdlWindow, flags: Int) -> Int
 	getWindowSurface: extern(SDL_GetWindowSurface) static func (window: SdlWindow) -> SdlSurface*
 	updateWindowSurface: extern(SDL_UpdateWindowSurface) static func (window: SdlWindow) -> Int
 	updateWindowSurfaceRects: extern(SDL_UpdateWindowSurfaceRects) static func (window: SdlWindow, rects: SdlRect*, numrects: Int) -> Int
