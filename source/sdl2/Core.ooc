@@ -91,6 +91,11 @@ SDL_BYTEORDER  : extern const Int
 SDL_BIG_ENDIAN : extern const Int
 SDL_LIL_ENDIAN : extern const Int
 
+/* Version stuff */
+SdlVersion: cover from SDL_version {
+    major, minor, patch: UInt8
+}
+
 SdlRect: cover from SDL_Rect {
 	x, y: extern Int16
 	w, h: extern UInt16
@@ -125,7 +130,7 @@ SdlDisplayMode: cover from SDL_DisplayMode {
 	driverdata:extern  Void*
 }
 
-SdlWindow: cover from SDL_Window* 
+SdlWindow: cover from SDL_Window*
 SdlRenderer: cover from SDL_Renderer*
 SdlTexture: cover from SDL_Texture*
 
@@ -364,6 +369,10 @@ SDL: cover {
 	setTextInputRect: extern(SDL_SetTextInputRect) static func(rect: SdlRect*)
 	hasScreenKeyboardSupport: extern(SDL_HasScreenKeyboardSupport) static func -> Bool
 	isScreenKeyboardShown: extern(SDL_IsScreenKeyboardShown) static func(window: SdlWindow) -> Bool
+
+    /* Version stuff */
+    getLinkedVersion: extern(SDL_GetVersion) static func (ver: SdlVersion*)
+    getCompiledVersion: extern(SDL_VERSION) static func (ver: SdlVersion*)
 
 }
 
