@@ -1,7 +1,7 @@
 use sdl2-mixer
 
 MixFormat: enum {
-    default: extern(MIX_DEFAULT_FORMAT)
+    default_: extern(MIX_DEFAULT_FORMAT)
 }
 
 MixMusic: cover from Mix_Music* {
