@@ -61,7 +61,7 @@ SdlHatState: enum {
     rightup: extern(SDL_HAT_RIGHTUP)
     rightdown: extern(SDL_HAT_RIGHTDOWN)
     leftup: extern(SDL_HAT_LEFTUP)
-    leftdown: extern(SDL_HAT_LEFTDOWn)
+    leftdown: extern(SDL_HAT_LEFTDOWN)
 }
 
 SdlJoystickEventState: enum {
