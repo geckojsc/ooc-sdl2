@@ -24,12 +24,24 @@ SdlWindowEvent: cover from SDL_WindowEvent {
     data1, data2: extern Int
 }
 
+SdlTextInputEvent: cover from SDL_TextInputEvent {
+    text: CString
+}
+
+SdlTextEditingEvent: cover from SDL_TextEditingEvent {
+    text: CString
+    start: Int
+    length: Int
+}
+
 SdlEvent: cover from SDL_Event {
     type: extern Int
     key: extern SdlKeyboardEvent
     motion: extern SdlMouseMotionEvent
     button: extern SdlMouseButtonEvent
     window: extern SdlWindowEvent
+    text: extern SdlTextInputEvent
+    edit: extern SdlTextEditingEvent
 
     wait: extern(SDL_WaitEvent) static func(SdlEvent*) -> Int
     poll: extern(SDL_PollEvent) static func(SdlEvent*) -> Int
@@ -307,6 +319,8 @@ SDL_BUTTON_LEFT      : extern Int
 SDL_BUTTON_WHEELDOWN : extern Int
 SDL_MOUSEMOTION      : extern Int
 SDL_WINDOWEVENT      : extern Int
+SDL_TEXTINPUT        : extern Int
+SDL_TEXTEDITING      : extern Int
 
 SDL_WINDOWEVENT_SHOWN             : extern Int
 SDL_WINDOWEVENT_HIDDEN            : extern Int
