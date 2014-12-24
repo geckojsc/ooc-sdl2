@@ -6,6 +6,11 @@ SdlMouseMotionEvent: cover from SDL_MouseMotionEvent {
     xrel, yrel: extern Int
 }
 
+SdlMouseWheelEvent: cover from SDL_MouseWheelEvent {
+    x, y: extern Int
+    which: extern Int
+}
+
 SdlKeysym: cover from SDL_Keysym {
     sym: extern Int
     scancode: extern Int
@@ -38,6 +43,7 @@ SdlEvent: cover from SDL_Event {
     type: extern Int
     key: extern SdlKeyboardEvent
     motion: extern SdlMouseMotionEvent
+    wheel: extern SdlMouseWheelEvent
     button: extern SdlMouseButtonEvent
     window: extern SdlWindowEvent
     text: extern SdlTextInputEvent
@@ -307,20 +313,21 @@ SDLK_UNDO   : extern Int/* Atari keyboard has Undo */
 
 SDL_VIDEOEXPOSE : extern Int
 
-SDL_QUIT             : extern Int
-SDL_KEYDOWN          : extern Int
-SDL_KEYUP            : extern Int
-SDL_MOUSEBUTTONUP    : extern Int
-SDL_MOUSEBUTTONDOWN  : extern Int
-SDL_BUTTON_WHEELUP   : extern Int
-SDL_BUTTON_RIGHT     : extern Int
-SDL_BUTTON_MIDDLE    : extern Int
-SDL_BUTTON_LEFT      : extern Int
-SDL_BUTTON_WHEELDOWN : extern Int
-SDL_MOUSEMOTION      : extern Int
-SDL_WINDOWEVENT      : extern Int
-SDL_TEXTINPUT        : extern Int
-SDL_TEXTEDITING      : extern Int
+SDL_QUIT              : extern Int
+SDL_KEYDOWN           : extern Int
+SDL_KEYUP             : extern Int
+SDL_MOUSEBUTTONUP     : extern Int
+SDL_MOUSEBUTTONDOWN   : extern Int
+SDL_BUTTON_RIGHT      : extern Int
+SDL_BUTTON_MIDDLE     : extern Int
+SDL_BUTTON_LEFT       : extern Int
+SDL_MOUSEWHEEL_NORMAL : extern Int
+SDL_MOUSEWHEEL_FLIPPED: extern Int
+SDL_MOUSEMOTION       : extern Int
+SDL_MOUSEWHEEL        : extern Int
+SDL_WINDOWEVENT       : extern Int
+SDL_TEXTINPUT         : extern Int
+SDL_TEXTEDITING       : extern Int
 
 SDL_WINDOWEVENT_SHOWN             : extern Int
 SDL_WINDOWEVENT_HIDDEN            : extern Int
