@@ -54,7 +54,7 @@ TTF: cover {
     open: extern(TTF_OpenFont) static func(const CString, Int) -> TtfFont
     openRW: extern(TTF_OpenFontRW) static func(Pointer, Int, Int) -> TtfFont
     openIndex: extern(TTF_OpenFontIndex) static func(CString, Int, Long) -> TtfFont
-    openIndexRW: extern(TTF_OpenFontIndex) static func(Pointer, Int, Long) -> TtfFont
+    openIndexRW: extern(TTF_OpenFontIndexRW) static func(Pointer, Int, Long) -> TtfFont
 
     byteSwappedUnicode: extern(TTF_ByteSwapedUNICODE) static func(Int)
 
