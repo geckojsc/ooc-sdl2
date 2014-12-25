@@ -32,10 +32,10 @@ TtfFont: cover from TTF_Font*{
     renderUTF8Solid: extern(TTF_RenderUTF8_Solid) func(CString, SdlColor) -> SdlSurface*
     renderUnicodeSolid: extern(TTF_RenderUNICODE_Solid) func(CString, SdlColor) -> SdlSurface*
     renderGlyphSolid: extern(TTF_RenderGlyph_Solid) func(UInt16, SdlColor)
-    renderTextShaded: extern(TTF_RenderText_Shaded) func(CString, SdlColor) -> SdlSurface*
-    renderUTF8Shaded: extern(TTF_RenderUTF8_Shaded) func(CString, SdlColor) -> SdlSurface*
-    renderUnicodeShaded: extern(TTF_RenderUNICODE_Shaded) func(CString, SdlColor) -> SdlSurface*
-    renderGlyphShaded: extern(TTF_RenderGlyph_Shaded) func(UInt16, SdlColor)
+    renderTextShaded: extern(TTF_RenderText_Shaded) func(CString, SdlColor, SdlColor) -> SdlSurface*
+    renderUTF8Shaded: extern(TTF_RenderUTF8_Shaded) func(CString, SdlColor, SdlColor) -> SdlSurface*
+    renderUnicodeShaded: extern(TTF_RenderUNICODE_Shaded) func(CString, SdlColor, SdlColor) -> SdlSurface*
+    renderGlyphShaded: extern(TTF_RenderGlyph_Shaded) func(UInt16, SdlColor, SdlColor)
     renderTextBlended: extern(TTF_RenderText_Blended) func(CString, SdlColor) -> SdlSurface*
     renderUTF8Blended: extern(TTF_RenderUTF8_Blended) func(CString, SdlColor) -> SdlSurface*
     renderUnicodeBlended: extern(TTF_RenderUNICODE_Blended) func(CString, SdlColor) -> SdlSurface*
