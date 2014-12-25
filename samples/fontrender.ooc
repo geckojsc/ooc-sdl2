@@ -1,5 +1,5 @@
 use sdl2
-import sdl2/[Core, Image, Ttf]
+import sdl2/[Core, Image, TTF]
 
 main: func (argc: Int, argv: CString*) {
 	

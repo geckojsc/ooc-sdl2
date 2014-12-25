@@ -1,6 +1,21 @@
 use sdl2-ttf
 import sdl2/Core
 
+TTF_MAJOR_VERSION: extern const Int
+TTF_MINOR_VERSION: extern const Int
+TTF_PATCHLEVEL: extern const Int
+UNICODE_BOM_NATIVE: extern const Int
+UNICODE_BOM_SWAPPED: extern const Int
+TTF_STYLE_NORMAL: extern const Int
+TTF_STYLE_BOLD: extern const Int
+TTF_STYLE_ITALIC: extern const Int
+TTF_STYLE_UNDERLINE: extern const Int
+TTF_STYLE_STRIKETHROUGH: extern const Int
+TTF_HINTING_NORMAL: extern const Int
+TTF_HINTING_LIGHT: extern const Int
+TTF_HINTING_MONO: extern const Int
+TTF_HINTING_NONE: extern const Int
+
 TtfFont: cover from TTF_Font*{
     getStyle: extern(TTF_GetFontStyle) func -> Int
     setStyle: extern(TTF_SetFontStyle) func(Int)
@@ -32,10 +47,10 @@ TtfFont: cover from TTF_Font*{
     renderUTF8Solid: extern(TTF_RenderUTF8_Solid) func(CString, SdlColor) -> SdlSurface*
     renderUnicodeSolid: extern(TTF_RenderUNICODE_Solid) func(CString, SdlColor) -> SdlSurface*
     renderGlyphSolid: extern(TTF_RenderGlyph_Solid) func(UInt16, SdlColor)
-    renderTextShaded: extern(TTF_RenderText_Shaded) func(CString, SdlColor) -> SdlSurface*
-    renderUTF8Shaded: extern(TTF_RenderUTF8_Shaded) func(CString, SdlColor) -> SdlSurface*
-    renderUnicodeShaded: extern(TTF_RenderUNICODE_Shaded) func(CString, SdlColor) -> SdlSurface*
-    renderGlyphShaded: extern(TTF_RenderGlyph_Shaded) func(UInt16, SdlColor)
+    renderTextShaded: extern(TTF_RenderText_Shaded) func(CString, SdlColor, SdlColor) -> SdlSurface*
+    renderUTF8Shaded: extern(TTF_RenderUTF8_Shaded) func(CString, SdlColor, SdlColor) -> SdlSurface*
+    renderUnicodeShaded: extern(TTF_RenderUNICODE_Shaded) func(CString, SdlColor, SdlColor) -> SdlSurface*
+    renderGlyphShaded: extern(TTF_RenderGlyph_Shaded) func(UInt16, SdlColor, SdlColor)
     renderTextBlended: extern(TTF_RenderText_Blended) func(CString, SdlColor) -> SdlSurface*
     renderUTF8Blended: extern(TTF_RenderUTF8_Blended) func(CString, SdlColor) -> SdlSurface*
     renderUnicodeBlended: extern(TTF_RenderUNICODE_Blended) func(CString, SdlColor) -> SdlSurface*

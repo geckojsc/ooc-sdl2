@@ -13,6 +13,8 @@ before_install:
   - (cd SDL2_image-2.0.0 && ./configure --prefix=$PREFIX && make -j5 && make install)
   - wget http://www.libsdl.org/projects/SDL_mixer/release/SDL2_mixer-2.0.0.tar.gz -O - | tar xz
   - (cd SDL2_mixer-2.0.0 && ./configure --prefix=$PREFIX && make -j5 && make install)
+  - wget https://www.libsdl.org/projects/SDL_ttf/release/SDL2_ttf-2.0.12.tar.gz -O - | tar xz
+  - (cd SDL2_ttf-2.0.12 && ./configure --prefix=$PREFIX && make -j5 && make install)
 
 script:
   - export OOC_LIBS=$PWD
@@ -21,3 +23,7 @@ script:
   - rock -v window.ooc -o=travis/window -I$PREFIX/include -L$PREFIX/lib
   - rock -v loadpng.ooc -o=travis/loadpng -I$PREFIX/include -L$PREFIX/lib
   - rock -v spinning.ooc -o=travis/spinning -I$PREFIX/include -L$PREFIX/lib
+  - rock -v joystick.ooc -o=travis/fontrender -I$PREFIX/include -L$PREFIX/lib
+  - rock -v controller.ooc -o=travis/fontrender -I$PREFIX/include -L$PREFIX/lib
+  - rock -v playwav.ooc -o=travis/fontrender -I$PREFIX/include -L$PREFIX/lib
+  - rock -v fontrender.ooc -o=travis/fontrender -I$PREFIX/include -L$PREFIX/lib
