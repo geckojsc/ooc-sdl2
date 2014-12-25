@@ -21,3 +21,7 @@ script:
   - rock -v window.ooc -o=travis/window -I$PREFIX/include -L$PREFIX/lib
   - rock -v loadpng.ooc -o=travis/loadpng -I$PREFIX/include -L$PREFIX/lib
   - rock -v spinning.ooc -o=travis/spinning -I$PREFIX/include -L$PREFIX/lib
+  - rock -v joystick.ooc -o=travis/fontrender -I$PREFIX/include -L$PREFIX/lib
+  - rock -v controller.ooc -o=travis/fontrender -I$PREFIX/include -L$PREFIX/lib
+  - rock -v playwav.ooc -o=travis/fontrender -I$PREFIX/include -L$PREFIX/lib
+  - rock -v fontrender.ooc -o=travis/fontrender -I$PREFIX/include -L$PREFIX/lib
