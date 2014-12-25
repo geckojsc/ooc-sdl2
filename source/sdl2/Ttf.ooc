@@ -1,6 +1,21 @@
 use sdl2-ttf
 import sdl2/Core
 
+TTF_MAJOR_VERSION: extern const Int
+TTF_MINOR_VERSION: extern const Int
+TTF_PATCHLEVEL: extern const Int
+UNICODE_BOM_NATIVE: extern const Int
+UNICODE_BOM_SWAPPED: extern const Int
+TTF_STYLE_NORMAL: extern const Int
+TTF_STYLE_BOLD: extern const Int
+TTF_STYLE_ITALIC: extern const Int
+TTF_STYLE_UNDERLINE: extern const Int
+TTF_STYLE_STRIKETHROUGH: extern const Int
+TTF_HINTING_NORMAL: extern const Int
+TTF_HINTING_LIGHT: extern const Int
+TTF_HINTING_MONO: extern const Int
+TTF_HINTING_NONE: extern const Int
+
 TtfFont: cover from TTF_Font*{
     getStyle: extern(TTF_GetFontStyle) func -> Int
     setStyle: extern(TTF_SetFontStyle) func(Int)
