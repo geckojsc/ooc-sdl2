@@ -16,7 +16,7 @@ TtfFont: cover from TTF_Font*{
 
     height: extern(TTF_FontHeight) func -> Int
     ascent: extern(TTF_FontAscent) func -> Int
-    dscent: extern(TTF_FontDscent) func -> Int
+    descent: extern(TTF_FontDescent) func -> Int
     lineSkip: extern(TTF_FontLineSkip) func -> Int
     faces: extern(TTF_FontFaces) func -> Long
     isFixedWidth: extern(TTF_FontFaceIsFixedWidth) func -> Int
@@ -56,7 +56,7 @@ TTF: cover {
     openIndex: extern(TTF_OpenFontIndex) static func(CString, Int, Long) -> TtfFont
     openIndexRW: extern(TTF_OpenFontIndexRW) static func(Pointer, Int, Long) -> TtfFont
 
-    byteSwappedUnicode: extern(TTF_ByteSwapedUNICODE) static func(Int)
+    byteSwappedUnicode: extern(TTF_ByteSwappedUNICODE) static func(Int)
 
     getLinkedVersion: extern(TTF_Linked_version) static func -> SdlVersion*
     getCompiledVersion: extern(SDL_TTF_VERSION) static func(ver: SdlVersion*)

@@ -20,6 +20,14 @@ main: func (argc: Int, argv: CString*) {
     // load the font
     font := TTF open("./assets/octicons.ttf", 32)
 
+    ("Font: %s, style: %s\nStyle: %d, Outline: %d, Hinting: %d, Kerning: %d\n"+
+    "Fixed: %d, line: %d, ascent: %d, dscent:%d, height: %d\n") printfln(\
+        font familyName(), font styleName(), \
+        font getStyle(), font getOutline(), font getHinting(), \
+        font getKerning(), font isFixedWidth(), font lineSkip(), font ascent(),\
+        font descent(), font height()
+    )
+
     // create text surface
     text := font renderUTF8Solid("\uf092" toCString(), (0,0,0,0) as SdlColor)
     texture := SDL createTextureFromSurface(renderer, text)
