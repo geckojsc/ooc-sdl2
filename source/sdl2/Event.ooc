@@ -294,10 +294,10 @@ SDLK_RALT      : extern Int
 SDLK_LALT      : extern Int
 SDLK_RMETA     : extern Int
 SDLK_LMETA     : extern Int
-SDLK_LSUPER    : extern Int/* Left "Windows" key */
-SDLK_RSUPER    : extern Int/* Right "Windows" key */
-SDLK_MODE      : extern Int/* "Alt Gr" key */
-SDLK_COMPOSE   : extern Int/* Multi-key compose key */
+SDLK_LGUI      : extern Int /* Left  "Windows / Command (Apple) / meta" key */
+SDLK_RGUI      : extern Int /* Right "Windows / Command (Apple) / meta" key */
+SDLK_MODE      : extern Int /* ModeSwitch key */
+SDLK_COMPOSE   : extern Int /* Multi-key compose key */
 
 /* Miscellaneous function keys */
 SDLK_HELP   : extern Int
@@ -305,9 +305,9 @@ SDLK_PRINT  : extern Int
 SDLK_SYSREQ : extern Int
 SDLK_BREAK  : extern Int
 SDLK_MENU   : extern Int
-SDLK_POWER  : extern Int/* Power Macintosh power key */
-SDLK_EURO   : extern Int/* Some european keyboards */
-SDLK_UNDO   : extern Int/* Atari keyboard has Undo */
+SDLK_POWER  : extern Int /* Power Macintosh power key */
+SDLK_EURO   : extern Int /* Some european keyboards */
+SDLK_UNDO   : extern Int /* Atari keyboard has Undo */
 
 /* Add any other keys here */
 
@@ -576,11 +576,11 @@ SDL_SCANCODE_KP_HEXADECIMAL     : extern Int
 SDL_SCANCODE_LCTRL  : extern Int
 SDL_SCANCODE_LSHIFT : extern Int
 SDL_SCANCODE_LALT   : extern Int
-SDL_SCANCODE_LGUI   : extern Int
+SDL_SCANCODE_LGUI   : extern Int /* windows, command (apple), meta */
 SDL_SCANCODE_RCTRL  : extern Int
 SDL_SCANCODE_RSHIFT : extern Int
-SDL_SCANCODE_RALT   : extern Int/* alt gr, option */
-SDL_SCANCODE_RGUI   : extern Int/* windows, command (apple), meta */
+SDL_SCANCODE_RALT   : extern Int /* alt gr, option */
+SDL_SCANCODE_RGUI   : extern Int /* windows, command (apple), meta */
 
 SDL_SCANCODE_AUDIONEXT    : extern Int
 SDL_SCANCODE_AUDIOPREV    : extern Int
@@ -602,7 +602,7 @@ SDL_SCANCODE_AC_BOOKMARKS : extern Int
 
 SDL_SCANCODE_BRIGHTNESSDOWN : extern Int
 SDL_SCANCODE_BRIGHTNESSUP   : extern Int
-SDL_SCANCODE_DISPLAYSWITCH  : extern Int/* display mirroring/dual display switch, video mode switch */
+SDL_SCANCODE_DISPLAYSWITCH  : extern Int /* display mirroring/dual display switch, video mode switch */
 SDL_SCANCODE_KBDILLUMTOGGLE : extern Int
 SDL_SCANCODE_KBDILLUMDOWN   : extern Int
 SDL_SCANCODE_KBDILLUMUP     : extern Int
