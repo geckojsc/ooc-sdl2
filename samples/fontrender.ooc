@@ -18,7 +18,12 @@ main: func (argc: Int, argv: CString*) {
 	renderer := SDL createRenderer(window, -1, SDL_RENDERER_ACCELERATED)
 
     // load the font
-    font := TTF open("./assets/octicons.ttf", 32)
+    font := TTFFont new("./assets/octicons.ttf", 32)
+
+    if(!font){
+        Exception new("Font can not be loaded!") throw()
+    }
+
 
     ("Font: %s, style: %s\nStyle: %d, Outline: %d, Hinting: %d, Kerning: %d\n"+
     "Fixed: %d, line: %d, ascent: %d, dscent:%d, height: %d\n") printfln(\
