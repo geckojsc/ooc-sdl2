@@ -16,7 +16,23 @@ TTF_HINTING_LIGHT: extern const Int
 TTF_HINTING_MONO: extern const Int
 TTF_HINTING_NONE: extern const Int
 
-TtfFont: cover from TTF_Font*{
+TTFFont: cover from TTF_Font*{
+    new: static func(filename: String, ptSize: Int) -> This{
+        TTF open(filename toCString(), ptSize)
+    }
+
+    new: static func ~rw (data: Pointer, freedata: Int, ptSize: Int) -> This{
+        TTF openRW(data, freedata, ptSize)
+    }
+
+    new: static func ~withIndex (filename: String, ptSize: Int, face: Long) -> This{
+        TTF openIndex(filename toCString(), ptSize, face)
+    }
+
+    new: static func ~rwwithIndex (data: Pointer, freedata, ptSize: Int, face: Long) -> This{
+        TTF openIndexRW(data, freedata, ptSize, face)
+    }
+
     getStyle: extern(TTF_GetFontStyle) func -> Int
     setStyle: extern(TTF_SetFontStyle) func(Int)
 
@@ -66,10 +82,10 @@ TTF: cover {
     getError: extern(TTF_GetError) static func -> CString
     setError: extern(TTF_SetError) static func(const CString, ...)
 
-    open: extern(TTF_OpenFont) static func(const CString, Int) -> TtfFont
-    openRW: extern(TTF_OpenFontRW) static func(Pointer, Int, Int) -> TtfFont
-    openIndex: extern(TTF_OpenFontIndex) static func(CString, Int, Long) -> TtfFont
-    openIndexRW: extern(TTF_OpenFontIndexRW) static func(Pointer, Int, Long) -> TtfFont
+    open: extern(TTF_OpenFont) static func(const CString, Int) -> TTFFont
+    openRW: extern(TTF_OpenFontRW) static func(Pointer, Int, Int) -> TTFFont
+    openIndex: extern(TTF_OpenFontIndex) static func(CString, Int, Long) -> TTFFont
+    openIndexRW: extern(TTF_OpenFontIndexRW) static func(Pointer, Int, Int, Long) -> TTFFont
 
     byteSwappedUnicode: extern(TTF_ByteSwappedUNICODE) static func(Int)
 
