@@ -36,6 +36,7 @@ Mix: class {
     loadMus: static extern(Mix_LoadMUS) func (path: CString) -> MixMusic
     haltMusic: static extern(Mix_HaltMusic) func
     fadeOutMusic: static extern(Mix_FadeOutMusic) func (milliseconds: Int)
+    setMusicPosition: static extern(Mix_SetMusicPosition) func (pos: Double)
     hookMusicFinished: static extern(Mix_HookMusicFinished) func (callback: Pointer)
 
     playingMusic: static extern(Mix_PlayingMusic) func -> Bool
