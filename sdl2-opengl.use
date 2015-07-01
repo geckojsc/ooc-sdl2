@@ -18,7 +18,7 @@ version (linux || windows || (apple && !ios)) {
 
   version (apple) {
     Pkgs: glew
-    Includes: glew.h
+    Includes: GL/glew.h
     Frameworks: OpenGL, Carbon
   }
 }
